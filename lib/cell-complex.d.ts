@@ -1,31 +1,16 @@
+import { map_t } from '@cicadoidea/basic/lib/map';
 export declare class id_t {
     name: string;
     constructor(name: string);
+    eq(that: id_t): boolean;
 }
 export declare class cell_complex_t {
-    map: Map<id_t, cell_t>;
+    private map;
     constructor();
-    attach(n: number, id: id_t, cmap: cmap_t): this;
-}
-export declare class cmap_entry_t {
-    cell: cell_t;
-    img_cell: cell_t;
-    bound_camp: cmap_t;
-    constructor(the: {
-        cell: cell_t;
-        img_cell: cell_t;
-        bound_camp: cmap_t;
-    });
-}
-export declare class cmap_t {
-    dom: cell_complex_t;
-    cod: cell_complex_t;
-    map: Map<cell_t, cmap_entry_t>;
-    constructor(the: {
-        dom: cell_complex_t;
-        cod: cell_complex_t;
-        map: Map<cell_t, cmap_entry_t>;
-    });
+    cells(): Generator<cell_t, void, unknown>;
+    eq(that: cell_complex_t): boolean;
+    dim_skeleton(dim: number): cell_complex_t;
+    attach(dim: number, id: id_t, cmap: cmap_t): this;
 }
 export declare class cell_t {
     id: id_t;
@@ -38,7 +23,33 @@ export declare class cell_t {
         cmap: cmap_t;
         spherical_evidence?: spherical_evidence_t;
     });
+    boundaries(): Generator<[cell_t, cell_t], void, unknown>;
+    boundary_map(): map_t<cell_t, cell_t>;
+    eq(that: cell_t): boolean;
 }
-declare class spherical_evidence_t {
+export declare class spherical_evidence_t {
 }
-export {};
+export declare class cmap_t {
+    dom: cell_complex_t;
+    cod: cell_complex_t;
+    map: map_t<cell_t, bound_t>;
+    constructor(the: {
+        dom: cell_complex_t;
+        cod: cell_complex_t;
+        map: map_t<cell_t, bound_t>;
+    });
+    cell_orientation(cell: cell_t): map_t<cell_t, cell_t>;
+    eq(that: cmap_t): boolean;
+    eq_ignore_cod(that: cmap_t): boolean;
+}
+export declare class bound_t {
+    src: cell_t;
+    tar: cell_t;
+    cmap: cmap_t;
+    constructor(the: {
+        src: cell_t;
+        tar: cell_t;
+        cmap: cmap_t;
+    });
+    eq(that: bound_t): boolean;
+}

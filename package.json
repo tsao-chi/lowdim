@@ -21,6 +21,6 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "@cicadoidea/basic": "0.0.13"
+    "@cicadoidea/basic": "0.0.15"
   }
 }
