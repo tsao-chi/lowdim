@@ -1,5 +1,4 @@
-- tree_matcher
-- good error report for earley
-  like: https://github.com/kach/nearley/issues/451
-- test partech in js by simply typed de_bruijn
-- docs
+- `cell_complex_t`
+- 1 dim -- `vertex_t`, `edge_t` -- `arrow_t`
+- 2 dim -- `face_t` -- `polygon_t`
+- 3 dim -- `body_t` -- `polyhedron_t`
