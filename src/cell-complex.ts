@@ -1,5 +1,16 @@
+// TODO
+//   id must be structured
+//   because we will generate attachment based on existing skeleton
+export class id_t {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
 export class cell_complex_t {
-  map: Map<number, Map<string, cell_t>>
+  map: Map<number, Map<id_t, cell_t>>
 
   constructor() {
     this.map = new Map()
@@ -15,12 +26,12 @@ export class cell_complex_t {
 export class cmap_t {
   dom: cell_complex_t
   cod: cell_complex_t
-  map: Map<[ number, string ], [ number, string, cmap_t ]>
+  map: Map<[ number, id_t ], [ number, id_t, cmap_t ]>
 
   constructor(the: {
     dom: cell_complex_t,
     cod: cell_complex_t,
-    map: Map<[ number, string ], [ number, string, cmap_t ]>,
+    map: Map<[ number, id_t ], [ number, id_t, cmap_t ]>,
   }) {
     this.dom = the.dom
     this.cod = the.cod
