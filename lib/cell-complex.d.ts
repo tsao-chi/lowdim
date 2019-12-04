@@ -3,9 +3,9 @@ export declare class id_t {
     constructor(name: string);
 }
 export declare class cell_complex_t {
-    map: Map<number, Map<id_t, cell_t>>;
+    map: Map<id_t, cell_t>;
     constructor();
-    attach(n: number, cmap: cmap_t): this;
+    attach(n: number, id: id_t, cmap: cmap_t): this;
 }
 export declare class cmap_t {
     dom: cell_complex_t;
@@ -18,9 +18,11 @@ export declare class cmap_t {
     });
 }
 export declare class cell_t {
+    dim: number;
     cmap: cmap_t;
     spherical_proof?: spherical_proof_t;
     constructor(the: {
+        dim: number;
         cmap: cmap_t;
         spherical_proof?: spherical_proof_t;
     });

@@ -9,14 +9,16 @@ export class id_t {
   }
 }
 
+// TODO
+//   test how to use id as key
 export class cell_complex_t {
-  map: Map<number, Map<id_t, cell_t>>
+  map: Map<id_t, cell_t>
 
   constructor() {
     this.map = new Map()
   }
 
-  attach(n: number, cmap: cmap_t): this {
+  attach(n: number, id: id_t, cmap: cmap_t): this {
     // TODO
     //   check cmap.cod is n dim skeleton of this
     return this
@@ -44,15 +46,19 @@ export class cmap_t {
 }
 
 // TODO
-//   about boundary
+//   the relationship between boundary of cell and dom cod of cmap
+//   more about the CW topology of cell-complex
 export class cell_t {
+  dim: number
   cmap: cmap_t
   spherical_proof?: spherical_proof_t
 
   constructor(the: {
+    dim: number,
     cmap: cmap_t,
     spherical_proof?: spherical_proof_t
   }) {
+    this.dim = the.dim
     this.cmap = the.cmap
     if (the.spherical_proof) {
       // TODO
