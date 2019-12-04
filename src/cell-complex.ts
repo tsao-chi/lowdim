@@ -25,15 +25,31 @@ export class cell_complex_t {
   }
 }
 
+export class cmap_entry_t {
+  cell: cell_t
+  img_cell: cell_t
+  bound_camp: cmap_t
+
+  constructor(the: {
+    cell: cell_t,
+    img_cell: cell_t,
+    bound_camp: cmap_t,
+  }) {
+    this.cell = the.cell
+    this.img_cell = the.img_cell
+    this.bound_camp = the.bound_camp
+  }
+}
+
 export class cmap_t {
   dom: cell_complex_t
   cod: cell_complex_t
-  map: Map<[ number, id_t ], [ number, id_t, cmap_t ]>
+  map: Map<cell_t , cmap_entry_t>
 
   constructor(the: {
     dom: cell_complex_t,
     cod: cell_complex_t,
-    map: Map<[ number, id_t ], [ number, id_t, cmap_t ]>,
+    map: Map<cell_t , cmap_entry_t>,
   }) {
     this.dom = the.dom
     this.cod = the.cod
@@ -49,30 +65,33 @@ export class cmap_t {
 //   the relationship between boundary of cell and dom cod of cmap
 //   more about the CW topology of cell-complex
 export class cell_t {
+  id: id_t
   dim: number
   cmap: cmap_t
-  spherical_proof?: spherical_proof_t
+  spherical_evidence?: spherical_evidence_t
 
   constructor(the: {
+    id: id_t,
     dim: number,
     cmap: cmap_t,
-    spherical_proof?: spherical_proof_t
+    spherical_evidence?: spherical_evidence_t
   }) {
+    this.id = the.id
     this.dim = the.dim
     this.cmap = the.cmap
-    if (the.spherical_proof) {
+    if (the.spherical_evidence) {
       // TODO
-      //   check the spherical_proof
-      this.spherical_proof = the.spherical_proof
+      //   check the spherical_evidence
+      this.spherical_evidence = the.spherical_evidence
     } else {
       // TODO
-      //   try to generate spherical_proof
-      this.spherical_proof = new spherical_proof_t()
+      //   try to generate spherical_evidence
+      this.spherical_evidence = new spherical_evidence_t()
     }
   }
 }
 
-class spherical_proof_t {
+class spherical_evidence_t {
   /**
    * [detail definition omitted]
    */
