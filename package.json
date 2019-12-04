@@ -1,6 +1,6 @@
 {
-  "name": "@cicadoidea/partech",
-  "title": "ParTech",
+  "name": "@cicadoidea/lowdim",
+  "title": "LowDim",
   "files": [
     "lib"
   ],
@@ -9,7 +9,7 @@
   "author": "Xie Yuheng",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cicadoidea/partech"
+    "url": "https://github.com/cicadoidea/lowdim"
   },
   "scripts": {
     "build": "tsc",
