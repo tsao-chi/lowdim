@@ -4,6 +4,12 @@ export class cell_complex_t {
   constructor() {
     this.map = new Map()
   }
+
+  attach(n: number, cmap: cmap_t): this {
+    // TODO
+    //   check cmap.cod is n dim skeleton of this
+    return this
+  }
 }
 
 export class cmap_t {
@@ -19,9 +25,15 @@ export class cmap_t {
     this.dom = the.dom
     this.cod = the.cod
     this.map = the.map
+
+    // TODO
+    //   check map is continuous
+    //   by condition on boundary
   }
 }
 
+// TODO
+//   about boundary
 export class cell_t {
   cmap: cmap_t
   spherical_proof?: spherical_proof_t

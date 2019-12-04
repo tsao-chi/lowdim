@@ -1,6 +1,7 @@
 export declare class cell_complex_t {
     map: Map<number, Map<string, cell_t>>;
     constructor();
+    attach(n: number, cmap: cmap_t): this;
 }
 export declare class cmap_t {
     dom: cell_complex_t;
