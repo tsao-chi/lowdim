@@ -1,6 +1,6 @@
 # LowDim
 
-Low dimensional algebraic topology.
+Low dimensional (0, 1, 2, 3 maybe 4 dimension) algebraic topology.
 
 - `npm install @cicadoidea/lowdim`
 
