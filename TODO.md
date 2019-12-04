@@ -1,4 +1,4 @@
-- `cell_complex_t`
+- `cell_complex_t` -- test continuous check
 - 1 dim -- `vertex_t`, `edge_t` -- `arrow_t`
 - 2 dim -- `face_t` -- `polygon_t`
 - 3 dim -- `body_t` -- `polyhedron_t`

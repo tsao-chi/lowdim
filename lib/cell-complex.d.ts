@@ -10,7 +10,7 @@ export declare class cell_complex_t {
     cells(): Generator<cell_t, void, unknown>;
     eq(that: cell_complex_t): boolean;
     dim_skeleton(dim: number): cell_complex_t;
-    attach(dim: number, id: id_t, cmap: cmap_t): this;
+    attach_cmap(dim: number, id: id_t, cmap: cmap_t): this;
 }
 export declare class cell_t {
     id: id_t;

@@ -40,14 +40,14 @@ export class cell_complex_t {
   dim_skeleton(dim: number): cell_complex_t {
     let skeleton = new cell_complex_t()
     for (let [id, cell] of this.map) {
-      if (cell.dim <= dim) {
+      if (cell.dim < dim) {
         skeleton.map.set(id, cell)
       }
     }
     return skeleton
   }
 
-  attach(dim: number, id: id_t, cmap: cmap_t): this {
+  attach_cmap(dim: number, id: id_t, cmap: cmap_t): this {
     assert(cmap.cod.eq(this.dim_skeleton(dim)))
     let cell = new cell_t({ dim, id, cmap })
     this.map.set(id, cell)
