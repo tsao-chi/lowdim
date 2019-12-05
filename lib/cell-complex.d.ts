@@ -7,10 +7,12 @@ export declare class id_t {
 export declare class cell_complex_t {
     private map;
     constructor();
+    cell(id: id_t): cell_t;
     cells(): Generator<cell_t, void, unknown>;
     eq(that: cell_complex_t): boolean;
     dim_skeleton(dim: number): cell_complex_t;
     attach_cmap(dim: number, id: id_t, cmap: cmap_t): this;
+    repr(): string;
 }
 export declare class cell_t {
     id: id_t;

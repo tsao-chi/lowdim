@@ -1,10 +1,11 @@
 import assert from 'assert'
 
-import { map_t } from '@cicadoidea/basic/lib/map'
+import { map_t } from '@cicadoidea/basic/lib/collection/map'
 
 // TODO
-//   id must be structured
+//   id must be structured (like expression)
 //   because we will generate attachment based on existing skeleton
+//   maybe just use any json as id
 export class id_t {
   name: string
 
@@ -27,6 +28,10 @@ export class cell_complex_t {
     })
   }
 
+  cell(id: id_t): cell_t {
+    return this.map.get_unwrap(id)
+  }
+
   *cells() {
     for (let cell of this.map.values()) {
       yield cell as cell_t
@@ -40,7 +45,7 @@ export class cell_complex_t {
   dim_skeleton(dim: number): cell_complex_t {
     let skeleton = new cell_complex_t()
     for (let [id, cell] of this.map) {
-      if (cell.dim < dim) {
+      if (cell.dim <= dim) {
         skeleton.map.set(id, cell)
       }
     }
@@ -48,10 +53,16 @@ export class cell_complex_t {
   }
 
   attach_cmap(dim: number, id: id_t, cmap: cmap_t): this {
-    assert(cmap.cod.eq(this.dim_skeleton(dim)))
+    assert(cmap.cod.eq(this.dim_skeleton(dim - 1)))
     let cell = new cell_t({ dim, id, cmap })
     this.map.set(id, cell)
     return this
+  }
+
+  repr(): string {
+    let s = ''
+
+    return s
   }
 }
 
@@ -121,6 +132,10 @@ export class cmap_t {
     cod: cell_complex_t,
     map: map_t<cell_t, bound_t>,
   }) {
+    this.dom = the.dom
+    this.cod = the.cod
+    this.map = the.map
+
     /**
      * Check map is continuous.
      *   boundary(map(cell)) == map(boundary(cell))
@@ -133,10 +148,6 @@ export class cmap_t {
         cell.boundary_map().endo_map_on_value(boundary => the.map.get_unwrap(boundary).tar)
       assert(map_then_boundary.weak_eq(boundary_then_map))
     }
-
-    this.dom = the.dom
-    this.cod = the.cod
-    this.map = the.map
   }
 
   cell_orientation(cell: cell_t): map_t<cell_t, cell_t> {
