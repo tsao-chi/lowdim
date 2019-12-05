@@ -1,9 +1,11 @@
 import { map_t } from '@cicadoidea/basic/lib/collection/map';
+import { repr_t } from '@cicadoidea/basic/lib/class/repr';
 export declare class id_t {
     name: string;
     constructor(name: string);
     eq(that: id_t): boolean;
 }
+export declare const id_repr: repr_t<id_t>;
 export declare class cell_complex_t {
     private map;
     constructor();
@@ -12,8 +14,8 @@ export declare class cell_complex_t {
     eq(that: cell_complex_t): boolean;
     dim_skeleton(dim: number): cell_complex_t;
     attach_cmap(dim: number, id: id_t, cmap: cmap_t): this;
-    repr(): string;
 }
+export declare const cell_complex_repr: repr_t<cell_complex_t>;
 export declare class cell_t {
     id: id_t;
     dim: number;

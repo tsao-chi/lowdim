@@ -52,4 +52,5 @@ interval.attach_cmap(
     ]),
   }))
 
-console.log(interval.repr())
+
+console.log(cx.cell_complex_repr.repr(interval))

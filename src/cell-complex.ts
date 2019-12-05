@@ -1,6 +1,7 @@
 import assert from 'assert'
 
 import { map_t } from '@cicadoidea/basic/lib/collection/map'
+import { repr_t } from '@cicadoidea/basic/lib/class/repr'
 
 // TODO
 //   id must be structured (like expression)
@@ -17,6 +18,12 @@ export class id_t {
     return (this.name === that.name)
   }
 }
+
+export const id_repr = new repr_t<id_t>({
+  repr(id: id_t): string {
+    return id.name
+  }
+})
 
 export class cell_complex_t {
   private map: map_t<id_t, cell_t>
@@ -58,13 +65,15 @@ export class cell_complex_t {
     this.map.set(id, cell)
     return this
   }
+}
 
-  repr(): string {
+export const cell_complex_repr = new repr_t<cell_complex_t>({
+  repr(cell_complex: cell_complex_t): string {
     let s = ''
-
+    // TODO
     return s
   }
-}
+})
 
 export class cell_t {
   id: id_t

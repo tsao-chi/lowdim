@@ -1,5 +1,3 @@
-- some interface for `eq`
-- `repr_t`
 - use any json as id
 - `cell_complex_t` -- test continuous check
 - `spherical_evidence_t`
