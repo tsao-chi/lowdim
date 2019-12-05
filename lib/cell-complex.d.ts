@@ -1,4 +1,4 @@
-import { map_t } from '@cicadoidea/basic/lib/map';
+import { map_t } from '@cicadoidea/basic/lib/collection/map';
 export declare class id_t {
     name: string;
     constructor(name: string);

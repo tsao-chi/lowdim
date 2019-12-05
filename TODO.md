@@ -1,5 +1,5 @@
 - some interface for `eq`
-- `format_t`
+- `repr_t`
 - use any json as id
 - `cell_complex_t` -- test continuous check
 - `spherical_evidence_t`
