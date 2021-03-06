@@ -1,7 +1,7 @@
 import { Cell, Id } from "@/cell"
 import { Complex } from "@/complex"
 
-export class Vertex implements Cell {
+export class Node implements Cell {
   id: Id
   complex: Complex
 

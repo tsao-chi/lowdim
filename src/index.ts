@@ -1,5 +1,5 @@
 export * from "@/cell"
 export * from "@/complex"
-export * from "@/vertex"
+export * from "@/node"
 export * from "@/edge"
 export * from "@/face"

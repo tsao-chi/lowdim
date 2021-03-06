@@ -1,15 +1,15 @@
 import { Cell, Id } from "@/cell"
-import { Vertex } from "@/vertex"
+import { Node } from "@/node"
 import { Edge, Endpoints } from "@/edge"
 import { Face, Polygon } from "@/face"
 
 export class Complex {
-  vertexes: Vertex[]
+  nodes: Node[]
   edges: Edge[]
   faces: Face[]
 
   constructor() {
-    this.vertexes = []
+    this.nodes = []
     this.edges = []
     this.faces = []
   }
@@ -27,15 +27,15 @@ export class Complex {
   repr(): string {
     let s = ""
 
-    if (this.vertexes.length > 0) {
-      s += "vertexes:\n"
-      s += this.vertexes.map(vertex => vertex.repr()).join(", ")
+    if (this.nodes.length > 0) {
+      s += "nodes:\n"
+      s += this.nodes.map((node) => node.repr()).join(", ")
       s += "\n"
     }
 
     if (this.edges.length > 0) {
       s += "edges:\n"
-      s += this.edges.map(edge => edge.repr()).join("\n")
+      s += this.edges.map((edge) => edge.repr()).join("\n")
       s += "\n"
     }
 
@@ -52,23 +52,23 @@ export class Complex {
 
   // NOTE 0-dim
 
-  vertex(): Vertex {
-    const id = this.vertexes.length
-    const vertex = new Vertex({ id, complex: this })
-    this.vertexes.push(vertex)
-    return vertex
+  node(): Node {
+    const id = this.nodes.length
+    const node = new Node({ id, complex: this })
+    this.nodes.push(node)
+    return node
   }
 
   // NOTE 1-dim
 
-  private endpoints(start: Vertex, end: Vertex): Endpoints {
+  private endpoints(start: Node, end: Node): Endpoints {
     return new Endpoints({
       start,
       end,
     })
   }
 
-  edge(start: Vertex, end: Vertex): Edge {
+  edge(start: Node, end: Node): Edge {
     const id = this.edges.length
     const edge = new Edge({ id, ...this.endpoints(start, end) })
     this.edges.push(edge)

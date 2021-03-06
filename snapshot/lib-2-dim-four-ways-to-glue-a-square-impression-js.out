@@ -1,4 +1,4 @@
-vertexes:
+nodes:
 0, 1, 2
 edges:
 0: 0 -> 1
@@ -6,7 +6,7 @@ edges:
 faces:
 0: [0, 1, -1, -0]
 
-vertexes:
+nodes:
 0
 edges:
 0: 0 -> 0
@@ -14,7 +14,7 @@ edges:
 faces:
 0: [0, 1, -0, -1]
 
-vertexes:
+nodes:
 0
 edges:
 0: 0 -> 0
@@ -22,7 +22,7 @@ edges:
 faces:
 0: [0, 1, -0, 1]
 
-vertexes:
+nodes:
 0, 1
 edges:
 0: 0 -> 1

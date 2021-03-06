@@ -1,4 +1,4 @@
-vertexes:
+nodes:
 0, 1
 edges:
 0: 0 -> 1

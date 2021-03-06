@@ -1,14 +1,14 @@
 import { Cell, Id } from "@/cell"
 import { Complex } from "@/complex"
-import { Vertex } from "@/vertex"
+import { Node } from "@/node"
 
 export class Edge implements Cell {
   id: Id
   complex: Complex
-  start: Vertex
-  end: Vertex
+  start: Node
+  end: Node
 
-  constructor(the: { id: Id; start: Vertex; end: Vertex }) {
+  constructor(the: { id: Id; start: Node; end: Node }) {
     Complex.same([the.start.complex, the.end.complex])
 
     this.id = the.id
@@ -54,10 +54,10 @@ export class InverseEdge extends Edge {
 
 export class Endpoints {
   complex: Complex
-  start: Vertex
-  end: Vertex
+  start: Node
+  end: Node
 
-  constructor(the: { start: Vertex; end: Vertex }) {
+  constructor(the: { start: Node; end: Node }) {
     Complex.same([the.start.complex, the.end.complex])
 
     this.complex = the.start.complex
