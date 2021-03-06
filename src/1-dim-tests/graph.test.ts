@@ -1,5 +1,5 @@
 import "module-alias/register"
-import { Complex } from "."
+import { Complex } from "@/index"
 
 const graph = new Complex()
 
