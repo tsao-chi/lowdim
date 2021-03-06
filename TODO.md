@@ -1,6 +1,5 @@
 - complex in cell
 
-- 1-dim -- edge -- endpoints
 - 1-dim.test.ts
 
 - 2-dim -- face -- polygon
