@@ -5,4 +5,5 @@ export type Id = number
 export type Cell = {
   id: Id
   complex: Complex
+  repr(): string
 }

@@ -1,9 +1,5 @@
-- Edge -- repr
-- Endpoints -- repr
+- Complex.repr
 
-- Face -- repr
-- Polygon -- repr
-
-- Complex -- repr
+- fix Face.repr
 
 - 3-dim -- Body -- Polyhedron

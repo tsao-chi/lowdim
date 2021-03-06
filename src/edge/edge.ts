@@ -17,6 +17,11 @@ export class Edge implements Cell {
     this.end = the.end
   }
 
+  repr(): string {
+    const { start, end } = this.boundary
+    return `${this.id}: ${start.repr()} -> ${end.repr()}`
+  }
+
   get boundary(): Endpoints {
     return new Endpoints({ ...this })
   }

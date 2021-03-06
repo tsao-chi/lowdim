@@ -14,6 +14,10 @@ export class Face implements Cell {
     this.complex = the.circuit[0].complex
     this.circuit = the.circuit
   }
+
+  repr(): string {
+    return `${this.id}: ${this.circuit.map(edge => edge.repr())}`
+  }
 }
 
 export class Polygon {
