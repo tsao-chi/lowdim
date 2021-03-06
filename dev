@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+require("module-alias/register")
+const { run, test, expect, snapshot, info } = require("@xieyuheng/test-runner")
+const changeCase = require("change-case")
+const path = require("path")
+const fs = require("fs")
+
+let commands = {}
+
+commands.t = async () => {
+  await commands.test_all()
+}
+
+commands.test_all = async () => {
+  await commands.test_lib()
+  await commands.test_impression()
+}
+
+commands.test_lib = async () => {
+  await test("node $file", { file: "lib/**/*.test.js" }, expect.ok)
+}
+
+commands.test_impression = async () => {
+  await test(
+    "node $file",
+    { file: "lib/**/*.impression.js" },
+    snapshot.out(({ file }) =>
+      path.resolve("snapshot", changeCase.paramCase(file) + ".out")
+    )
+  )
+}
+
+info()
+
+run(commands)
