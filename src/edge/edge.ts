@@ -17,8 +17,21 @@ export class Edge implements Cell {
     this.end = the.end
   }
 
-  boundary(): Endpoints {
+  get boundary(): Endpoints {
     return new Endpoints({ ...this })
+  }
+
+  get inverse(): InverseEdge {
+    return new InverseEdge({ ...this })
+  }
+}
+
+export class InverseEdge extends Edge {
+  get boundary(): Endpoints {
+    return new Endpoints({
+      start: this.end,
+      end: this.start,
+    })
   }
 }
 

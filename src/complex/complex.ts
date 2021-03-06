@@ -47,14 +47,14 @@ export class Complex {
     return edge
   }
 
-  endpoints(start: Id, end: Id): Endpoints {
+  endpoints(start: Vertex, end: Vertex): Endpoints {
     return new Endpoints({
-      start: this.vertex(start),
-      end: this.vertex(end),
+      start,
+      end,
     })
   }
 
-  new_edge(start: Id, end: Id): Edge {
+  new_edge(start: Vertex, end: Vertex): Edge {
     const id = this.edges.length
     const edge = new Edge({ id, ...this.endpoints(start, end) })
     this.edges.push(edge)
@@ -69,13 +69,11 @@ export class Complex {
     return face
   }
 
-  polygon(circuit: Id[]): Polygon {
-    return new Polygon({
-      circuit: circuit.map((id) => this.edge(id)),
-    })
+  polygon(circuit: Edge[]): Polygon {
+    return new Polygon({ circuit })
   }
 
-  new_face(circuit: Id[]): Face {
+  new_face(circuit: Edge[]): Face {
     const id = this.faces.length
     const face = new Face({ id, ...this.polygon(circuit) })
     this.faces.push(face)

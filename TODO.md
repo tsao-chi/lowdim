@@ -1,5 +1,3 @@
-- 2-dim tests
-
 - Vertex -- repr
 - Edge -- repr
 - Face -- repr

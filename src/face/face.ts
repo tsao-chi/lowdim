@@ -18,7 +18,7 @@ export class Face implements Cell {
 
 export class Polygon {
   complex: Complex
-  circuit: Edge[]
+  circuit: Array<Edge>
 
   constructor(the: { circuit: Edge[] }) {
     Polygon.circuit_check(the.circuit)
@@ -37,10 +37,12 @@ export class Polygon {
     const rest = circuit.slice(1)
     const last = circuit[circuit.length - 1]
 
-    if (head.start !== last.end) throw new Error("Circuit is not closed.")
+    if (head.boundary.start !== last.boundary.end)
+      throw new Error("Circuit is not closed.")
 
     for (const edge of rest) {
-      if (head.end !== edge.start) throw new Error("Circuit is not closed.")
+      if (head.boundary.end !== edge.boundary.start)
+        throw new Error("Circuit is not closed.")
 
       head = edge
     }
