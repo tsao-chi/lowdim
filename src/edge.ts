@@ -15,6 +15,10 @@ export class Edge implements Cell {
     this.start = the.start
     this.end = the.end
   }
+
+  boundary(): Endpoints {
+    return new Endpoints({ ...this })
+  }
 }
 
 export class Endpoints {
