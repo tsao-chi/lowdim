@@ -21,9 +21,8 @@ export class Face implements Cell {
 
   repr(): string {
     const polygon = this.boundary
-    return `${this.id}: [${polygon.circuit
-      .map((edge) => `${edge.sign === -1 ? "-" : ""}${edge.id}`)
-      .join(", ")}]`
+    const edge_repr = (edge: Edge) => `${edge.sign === -1 ? "-" : ""}${edge.id}`
+    return `${this.id}: [${polygon.circuit.map(edge_repr).join(", ")}]`
   }
 }
 
