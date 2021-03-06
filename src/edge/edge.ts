@@ -5,15 +5,14 @@ import { Vertex } from "@/vertex"
 export class Edge implements Cell {
   id: Id
   complex: Complex
-
   start: Vertex
   end: Vertex
 
-  constructor(the: { id: Id; complex: Complex; start: Vertex; end: Vertex }) {
+  constructor(the: { id: Id; start: Vertex; end: Vertex }) {
     Complex.same([the.start.complex, the.end.complex])
 
     this.id = the.id
-    this.complex = the.complex
+    this.complex = the.start.complex
     this.start = the.start
     this.end = the.end
   }

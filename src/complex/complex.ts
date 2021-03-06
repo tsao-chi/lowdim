@@ -54,11 +54,9 @@ export class Complex {
     })
   }
 
-  new_edge(endpoints: Endpoints): Edge {
-    Complex.same([this, endpoints.complex])
-
+  new_edge(start: Id, end: Id): Edge {
     const id = this.vertexes.length
-    const edge = new Edge({ id, ...endpoints })
+    const edge = new Edge({ id, ...this.endpoints(start, end) })
     this.edges.push(edge)
     return edge
   }
@@ -72,7 +70,10 @@ export class Complex {
   }
 
   polygon(circuit: Id[]): Polygon {
-    throw new Error("TODO")
-    // return new Polygon()
+    return new Polygon({
+      circuit: circuit.map((id) => this.edge(id)),
+    })
   }
+
+  // new_face(circuit: Id[]): Face {}
 }

@@ -5,27 +5,25 @@ import { Edge } from "@/edge"
 export class Face implements Cell {
   id: Id
   complex: Complex
-
   circuit: Edge[]
 
-  constructor(the: { id: Id; complex: Complex; circuit: Edge[] }) {
+  constructor(the: { id: Id; circuit: Edge[] }) {
     Polygon.circuit_check(the.circuit)
 
     this.id = the.id
-    this.complex = the.complex
+    this.complex = the.circuit[0].complex
     this.circuit = the.circuit
   }
 }
 
 export class Polygon {
   complex: Complex
-
   circuit: Edge[]
 
-  constructor(the: { complex: Complex; circuit: Edge[] }) {
+  constructor(the: { circuit: Edge[] }) {
     Polygon.circuit_check(the.circuit)
 
-    this.complex = the.complex
+    this.complex = the.circuit[0].complex
     this.circuit = the.circuit
   }
 
