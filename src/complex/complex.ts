@@ -55,7 +55,7 @@ export class Complex {
   }
 
   new_edge(start: Id, end: Id): Edge {
-    const id = this.vertexes.length
+    const id = this.edges.length
     const edge = new Edge({ id, ...this.endpoints(start, end) })
     this.edges.push(edge)
     return edge
@@ -75,5 +75,10 @@ export class Complex {
     })
   }
 
-  // new_face(circuit: Id[]): Face {}
+  new_face(circuit: Id[]): Face {
+    const id = this.faces.length
+    const face = new Face({ id, ...this.polygon(circuit) })
+    this.faces.push(face)
+    return face
+  }
 }

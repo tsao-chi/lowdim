@@ -1,4 +1,4 @@
-- 2-dim -- face -- polygon
+- 2-dim tests
 
 - Vertex -- repr
 - Edge -- repr
