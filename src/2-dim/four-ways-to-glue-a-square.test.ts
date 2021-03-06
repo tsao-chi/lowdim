@@ -4,14 +4,14 @@ import { Complex } from "@/index"
 {
   const sphere = new Complex()
 
-  const south = sphere.new_vertex()
-  const middle = sphere.new_vertex()
-  const north = sphere.new_vertex()
+  const south = sphere.vertex()
+  const middle = sphere.vertex()
+  const north = sphere.vertex()
 
-  const south_long = sphere.new_edge(south, middle)
-  const north_long = sphere.new_edge(middle, north)
+  const south_long = sphere.edge(south, middle)
+  const north_long = sphere.edge(middle, north)
 
-  const surface = sphere.new_face([
+  const surface = sphere.face([
     south_long,
     north_long,
     north_long.inverse,
@@ -22,35 +22,35 @@ import { Complex } from "@/index"
 {
   const torus = new Complex()
 
-  const origin = torus.new_vertex()
+  const origin = torus.vertex()
 
-  const toro = torus.new_edge(origin, origin)
-  const polo = torus.new_edge(origin, origin)
+  const toro = torus.edge(origin, origin)
+  const polo = torus.edge(origin, origin)
 
-  const surface = torus.new_face([toro, polo, toro.inverse, polo.inverse])
+  const surface = torus.face([toro, polo, toro.inverse, polo.inverse])
 }
 
 {
   const klein_bottle = new Complex()
 
-  const origin = klein_bottle.new_vertex()
+  const origin = klein_bottle.vertex()
 
-  const toro = klein_bottle.new_edge(origin, origin)
-  const cross = klein_bottle.new_edge(origin, origin)
+  const toro = klein_bottle.edge(origin, origin)
+  const cross = klein_bottle.edge(origin, origin)
 
-  const surface = klein_bottle.new_face([toro, cross, toro.inverse, cross])
+  const surface = klein_bottle.face([toro, cross, toro.inverse, cross])
 }
 
 {
   const projective_plane = new Complex()
 
-  const start = projective_plane.new_vertex()
-  const end = projective_plane.new_vertex()
+  const start = projective_plane.vertex()
+  const end = projective_plane.vertex()
 
-  const left_rim = projective_plane.new_edge(start, end)
-  const right_rim = projective_plane.new_edge(end, start)
+  const left_rim = projective_plane.edge(start, end)
+  const right_rim = projective_plane.edge(end, start)
 
-  const surface = projective_plane.new_face([
+  const surface = projective_plane.face([
     left_rim,
     right_rim,
     left_rim,

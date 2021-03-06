@@ -26,13 +26,7 @@ export class Complex {
 
   // NOTE 0-dim
 
-  vertex(id: Id): Vertex {
-    const vertex = this.vertexes[id]
-    if (vertex === undefined) throw new Error(`unknown vertex id: ${id}`)
-    return vertex
-  }
-
-  new_vertex(): Vertex {
+  vertex(): Vertex {
     const id = this.vertexes.length
     const vertex = new Vertex({ id, complex: this })
     this.vertexes.push(vertex)
@@ -41,20 +35,14 @@ export class Complex {
 
   // NOTE 1-dim
 
-  edge(id: Id): Edge {
-    const edge = this.edges[id]
-    if (edge === undefined) throw new Error(`unknown edge id: ${id}`)
-    return edge
-  }
-
-  endpoints(start: Vertex, end: Vertex): Endpoints {
+  private endpoints(start: Vertex, end: Vertex): Endpoints {
     return new Endpoints({
       start,
       end,
     })
   }
 
-  new_edge(start: Vertex, end: Vertex): Edge {
+  edge(start: Vertex, end: Vertex): Edge {
     const id = this.edges.length
     const edge = new Edge({ id, ...this.endpoints(start, end) })
     this.edges.push(edge)
@@ -63,17 +51,11 @@ export class Complex {
 
   // NOTE 2-dim
 
-  face(id: Id): Face {
-    const face = this.faces[id]
-    if (face === undefined) throw new Error(`unknown face id: ${id}`)
-    return face
-  }
-
-  polygon(circuit: Edge[]): Polygon {
+  private polygon(circuit: Edge[]): Polygon {
     return new Polygon({ circuit })
   }
 
-  new_face(circuit: Edge[]): Face {
+  face(circuit: Edge[]): Face {
     const id = this.faces.length
     const face = new Face({ id, ...this.polygon(circuit) })
     this.faces.push(face)
