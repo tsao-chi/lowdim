@@ -1,8 +1,8 @@
 {
-  "include": [ "src" ],
+  "include": ["src"],
   "compilerOptions": {
-    "lib": [ "es2019" ],
-    "target": "esnext",
+    "lib": ["esnext"],
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -10,6 +10,8 @@
     "strict": true,
     "outDir": "lib",
     "baseUrl": ".",
-    "paths": { "*": [ "node_modules/*" ] },
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }
