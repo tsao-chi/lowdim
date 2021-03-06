@@ -1,5 +1,3 @@
-- complex in cell
-
 - 1-dim.test.ts
 
 - 2-dim -- face -- polygon
