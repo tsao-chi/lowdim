@@ -87,4 +87,8 @@ export class Complex {
     this.faces.push(face)
     return face
   }
+
+  // NOTE 3-dim
+
+  // TODO
 }
