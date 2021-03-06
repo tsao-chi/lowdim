@@ -1,8 +1,4 @@
-export type Id = number
-
-export type Cell = {
-  id: Id
-}
+import { Cell, Id } from "@/cell"
 
 export class Vertex implements Cell {
   id: Id

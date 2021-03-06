@@ -1,5 +1,3 @@
-- cell
-
 - complex in cell
 
 - 0-dim -- vertex
