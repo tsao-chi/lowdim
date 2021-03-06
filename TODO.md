@@ -1,6 +1,5 @@
 - complex in cell
 
-- 0-dim -- vertex
 - 1-dim -- edge -- endpoints
 - 1-dim.test.ts
 
