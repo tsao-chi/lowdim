@@ -2,13 +2,6 @@
 
 Low dimensional (0, 1, 2, 3 maybe 4 dimension) algebraic topology.
 
-- `npm install @cicadoidea/lowdim`
-
-## References
-
-- ["A Recursive Combinatorial Description of Cell-complex"](https://inner.xieyuheng.now.sh/paper/a-recursive-combinatorial-description-of-cell-complex)
-  - by Xie Yuheng, 2019-05-06.
-
 ## Community
 
 Contributions are welcome, see [current TODO list](TODO.md) for tasks. <br>

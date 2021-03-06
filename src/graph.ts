@@ -1,23 +1,33 @@
 export type Id = number
 
-export class Vertex {}
+export class Vertex {
+  id: Id
+
+  constructor(id: Id) {
+    this.id = id
+  }
+}
 
 export class Edge {
-  start: Id
-  end: Id
+  id: Id
+  start: Vertex
+  end: Vertex
 
-  constructor(the: { start: Id; end: Id }) {
-    this.start = the.start
-    this.end = the.end
+  constructor(id: Id, start: Vertex, end: Vertex) {
+    this.id = id
+    this.start = start
+    this.end = end
   }
 }
 
 export class Graph {
-  vertexes: Map<Id, Vertex>
-  edges: Map<Id, Edge>
+  vertexes: Array<Vertex>
+  edges: Array<Edge>
 
-  constructor(the: { vertexes: Map<Id, Vertex>; edges: Map<Id, Edge> }) {
-    this.vertexes = the.vertexes
-    this.edges = the.edges
+  constructor() {
+    this.vertexes = new Array()
+    this.edges = new Array()
   }
+
+
 }

@@ -1,3 +1,4 @@
-- 1-dim -- `vertex_t`, `edge_t` -- `arrow_t`
-- 2-dim -- `face_t` -- `polygon_t`
-- 3-dim -- `body_t` -- `polyhedron_t`
+- 0-dim -- vertex
+- 1-dim -- edge -- endpoints
+- 2-dim -- face -- polygon
+- 3-dim -- body -- polyhedron
