@@ -24,6 +24,32 @@ export class Complex {
     }
   }
 
+  repr(): string {
+    let s = ""
+
+    if (this.vertexes.length > 0) {
+      s += "vertexes:\n"
+      s += this.vertexes.map(vertex => vertex.repr()).join(", ")
+      s += "\n"
+    }
+
+    if (this.edges.length > 0) {
+      s += "edges:\n"
+      s += this.edges.map(edge => edge.repr()).join("\n")
+      s += "\n"
+    }
+
+    if (this.faces.length > 0) {
+      s += "faces:\n"
+      for (const face of this.faces) {
+        s += face.repr()
+      }
+      s += "\n"
+    }
+
+    return s
+  }
+
   // NOTE 0-dim
 
   vertex(): Vertex {

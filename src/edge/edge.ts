@@ -22,6 +22,10 @@ export class Edge implements Cell {
     return `${this.id}: ${start.repr()} -> ${end.repr()}`
   }
 
+  get sign(): -1 | 1 {
+    return 1
+  }
+
   get boundary(): Endpoints {
     return new Endpoints({ ...this })
   }
@@ -37,6 +41,14 @@ export class InverseEdge extends Edge {
       start: this.end,
       end: this.start,
     })
+  }
+
+  get inverse(): InverseEdge {
+    return new Edge({ ...this })
+  }
+
+  get sign(): -1 | 1 {
+    return -1
   }
 }
 

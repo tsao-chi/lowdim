@@ -17,6 +17,8 @@ import { Complex } from "@/index"
     north_long.inverse,
     south_long.inverse,
   ])
+
+  console.log(sphere.repr())
 }
 
 {
@@ -28,6 +30,8 @@ import { Complex } from "@/index"
   const polo = torus.edge(origin, origin)
 
   const surface = torus.face([toro, polo, toro.inverse, polo.inverse])
+
+  console.log(torus.repr())
 }
 
 {
@@ -39,6 +43,8 @@ import { Complex } from "@/index"
   const cross = klein_bottle.edge(origin, origin)
 
   const surface = klein_bottle.face([toro, cross, toro.inverse, cross])
+
+  console.log(klein_bottle.repr())
 }
 
 {
@@ -56,4 +62,6 @@ import { Complex } from "@/index"
     left_rim,
     right_rim,
   ])
+
+  console.log(projective_plane.repr())
 }

@@ -11,6 +11,6 @@ export class Vertex implements Cell {
   }
 
   repr(): string {
-    return this.id.toString()
+    return `${this.id}`
   }
 }

@@ -15,8 +15,15 @@ export class Face implements Cell {
     this.circuit = the.circuit
   }
 
+  get boundary(): Polygon {
+    return new Polygon({ ...this })
+  }
+
   repr(): string {
-    return `${this.id}: ${this.circuit.map(edge => edge.repr())}`
+    const polygon = this.boundary
+    return `${this.id}: ${polygon.circuit.map(
+      (edge) => `${edge.sign === -1 ? "-" : ""}${edge.id}`
+    ).join(", ")}`
   }
 }
 
