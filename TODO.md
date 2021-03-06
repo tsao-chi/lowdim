@@ -1,5 +1,3 @@
-- 1-dim.test.ts
-
 - 2-dim -- face -- polygon
 - 2-dim.test.ts
 

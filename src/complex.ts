@@ -18,7 +18,9 @@ export class Complex {
   }
 
   vertex(id: Id): Vertex {
-    return this.vertexes[id]
+    const vertex = this.vertexes[id]
+    if (vertex === undefined) throw new Error(`unknown vertex id: ${id}`)
+    return vertex
   }
 
   new_vertex(): Vertex {
@@ -29,7 +31,16 @@ export class Complex {
   }
 
   edge(id: Id): Edge {
-    return this.edges[id]
+    const edge = this.edges[id]
+    if (edge === undefined) throw new Error(`unknown edge id: ${id}`)
+    return edge
+  }
+
+  endpoints(start: Id, end: Id): Endpoints {
+    return new Endpoints({
+      start: this.vertex(start),
+      end: this.vertex(end),
+    })
   }
 
   new_edge(endpoints: Endpoints): Edge {
