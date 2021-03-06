@@ -1,26 +1,23 @@
-export type id_t = number
+export type Id = number
 
-export class vertex_t {}
+export class Vertex {}
 
-export class edge_t {
-  start: id_t
-  end: id_t
+export class Edge {
+  start: Id
+  end: Id
 
-  constructor(the: { start: id_t; end: id_t }) {
+  constructor(the: { start: Id; end: Id }) {
     this.start = the.start
     this.end = the.end
   }
 }
 
-export class graph_t {
-  vertex_dic: Map<id_t, vertex_t>
-  edge_dic: Map<id_t, edge_t>
+export class Graph {
+  vertexes: Map<Id, Vertex>
+  edges: Map<Id, Edge>
 
-  constructor(the: {
-    vertex_dic: Map<id_t, vertex_t>
-    edge_dic: Map<id_t, edge_t>
-  }) {
-    this.vertex_dic = the.vertex_dic
-    this.edge_dic = the.edge_dic
+  constructor(the: { vertexes: Map<Id, Vertex>; edges: Map<Id, Edge> }) {
+    this.vertexes = the.vertexes
+    this.edges = the.edges
   }
 }
