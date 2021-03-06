@@ -1,5 +1,3 @@
-- Vertex -- repr
-
 - Edge -- repr
 - Endpoints -- repr
 
