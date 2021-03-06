@@ -1,0 +1,50 @@
+import { Cell, Id } from "@/cell"
+import { Complex } from "@/complex"
+import { Edge } from "@/edge"
+
+export class Face implements Cell {
+  id: Id
+  complex: Complex
+
+  circuit: Edge[]
+
+  constructor(the: { id: Id; complex: Complex; circuit: Edge[] }) {
+    Polygon.circuit_check(the.circuit)
+
+    this.id = the.id
+    this.complex = the.complex
+    this.circuit = the.circuit
+  }
+}
+
+export class Polygon {
+  complex: Complex
+
+  circuit: Edge[]
+
+  constructor(the: { complex: Complex; circuit: Edge[] }) {
+    Polygon.circuit_check(the.circuit)
+
+    this.complex = the.complex
+    this.circuit = the.circuit
+  }
+
+  static circuit_check(circuit: Edge[]): void {
+    if (circuit.length === 0)
+      throw new Error("Circuit should at least have one edge.")
+
+    Complex.same(circuit.map((edge) => edge.complex))
+
+    let head = circuit[0]
+    const rest = circuit.slice(1)
+    const last = circuit[circuit.length - 1]
+
+    if (head.start !== last.end) throw new Error("Circuit is not closed.")
+
+    for (const edge of rest) {
+      if (head.end !== edge.start) throw new Error("Circuit is not closed.")
+
+      head = edge
+    }
+  }
+}

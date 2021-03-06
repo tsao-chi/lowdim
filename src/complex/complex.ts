@@ -1,21 +1,30 @@
 import { Cell, Id } from "@/cell"
 import { Vertex } from "@/vertex"
 import { Edge, Endpoints } from "@/edge"
+import { Face, Polygon } from "@/face"
 
 export class Complex {
   vertexes: Vertex[]
   edges: Edge[]
+  faces: Face[]
 
   constructor() {
     this.vertexes = []
     this.edges = []
+    this.faces = []
   }
 
-  static same([complex, ...complexes]: [Complex, ...Complex[]]): void {
-    if (complexes.some((other) => complex !== other)) {
+  static same(complexes: Complex[]): void {
+    if (complexes.length === 0) return
+
+    const [head, ...rest] = complexes
+
+    if (rest.some((other) => head !== other)) {
       throw new Error("Expecting complexes to be the same.")
     }
   }
+
+  // NOTE 0-dim
 
   vertex(id: Id): Vertex {
     const vertex = this.vertexes[id]
@@ -29,6 +38,8 @@ export class Complex {
     this.vertexes.push(vertex)
     return vertex
   }
+
+  // NOTE 1-dim
 
   edge(id: Id): Edge {
     const edge = this.edges[id]
@@ -50,5 +61,18 @@ export class Complex {
     const edge = new Edge({ id, ...endpoints })
     this.edges.push(edge)
     return edge
+  }
+
+  // NOTE 2-dim
+
+  face(id: Id): Face {
+    const face = this.faces[id]
+    if (face === undefined) throw new Error(`unknown face id: ${id}`)
+    return face
+  }
+
+  polygon(circuit: Id[]): Polygon {
+    throw new Error("TODO")
+    // return new Polygon()
   }
 }

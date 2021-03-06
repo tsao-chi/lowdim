@@ -10,6 +10,8 @@ export class Edge implements Cell {
   end: Vertex
 
   constructor(the: { id: Id; complex: Complex; start: Vertex; end: Vertex }) {
+    Complex.same([the.start.complex, the.end.complex])
+
     this.id = the.id
     this.complex = the.complex
     this.start = the.start
