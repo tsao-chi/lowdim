@@ -1,5 +1,6 @@
 import { Cell, Id } from "@/cell"
 import { Complex } from "@/complex"
+import { Spheric } from "@/spheric"
 import { Node } from "@/node"
 
 export class Edge implements Cell {
@@ -51,7 +52,7 @@ export class InverseEdge extends Edge {
   }
 }
 
-export class Endpoints {
+export class Endpoints implements Spheric {
   complex: Complex
   start: Node
   end: Node

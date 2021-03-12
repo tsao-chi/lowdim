@@ -1,5 +1,6 @@
 import { Cell, Id } from "@/cell"
 import { Complex } from "@/complex"
+import { Spheric } from "@/spheric"
 
 export class Node implements Cell {
   id: Id
@@ -19,7 +20,7 @@ export class Node implements Cell {
   }
 }
 
-export class Void {
+export class Void implements Spheric {
   complex: Complex
 
   constructor(the: { complex: Complex }) {

@@ -1,5 +1,6 @@
 import { Cell, Id, cell_eq } from "@/cell"
 import { Complex } from "@/complex"
+import { Spheric } from "@/spheric"
 import { Face } from "@/face"
 
 export class Body implements Cell {
@@ -42,7 +43,7 @@ export class Joint {
   }
 }
 
-export class Polyhedron {
+export class Polyhedron implements Spheric {
   complex: Complex
   joints: Array<Joint>
 

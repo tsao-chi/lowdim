@@ -1,4 +1,3 @@
-- boundary implements Spheric
 - construct cell from boundary
 - Polyhedron
 - Body

@@ -1,5 +1,6 @@
 import { Cell, Id, cell_eq } from "@/cell"
 import { Complex } from "@/complex"
+import { Spheric } from "@/spheric"
 import { Edge } from "@/edge"
 
 export class Face implements Cell {
@@ -25,7 +26,7 @@ export class Face implements Cell {
   }
 }
 
-export class Polygon {
+export class Polygon implements Spheric {
   complex: Complex
   circuit: Array<Edge>
 
