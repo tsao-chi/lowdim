@@ -6,14 +6,16 @@ import { Face } from "@/face"
 export class Body implements Cell {
   id: Id
   complex: Complex
+  polyhedron: Polyhedron
 
-  constructor(the: { id: Id; complex: Complex }) {
+  constructor(the: { id: Id; polyhedron: Polyhedron }) {
     this.id = the.id
-    this.complex = the.complex
+    this.complex = the.polyhedron.complex
+    this.polyhedron = the.polyhedron
   }
 
   get boundary(): Polyhedron {
-    throw new Error("TODO")
+    return this.polyhedron
   }
 
   repr(): string {

@@ -1,7 +1,6 @@
-- construct cell from boundary -- Body
 - Polyhedron
-- Body
-- 3-dim -- Body --
+- Body -- repr
+- 3-dim -- impression
 
 - topology of 3-dim
 
