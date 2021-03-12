@@ -8,8 +8,7 @@ export class Face implements Cell {
   circuit: Edge[]
 
   constructor(the: { id: Id; circuit: Edge[] }) {
-    Polygon.circuit_check(the.circuit)
-
+    circuit_check(the.circuit)
     this.id = the.id
     this.complex = the.circuit[0].complex
     this.circuit = the.circuit
@@ -31,30 +30,29 @@ export class Polygon {
   circuit: Array<Edge>
 
   constructor(the: { circuit: Edge[] }) {
-    Polygon.circuit_check(the.circuit)
-
+    circuit_check(the.circuit)
     this.complex = the.circuit[0].complex
     this.circuit = the.circuit
   }
+}
 
-  static circuit_check(circuit: Edge[]): void {
-    if (circuit.length === 0)
-      throw new Error("Circuit should at least have one edge.")
+function circuit_check(circuit: Edge[]): void {
+  if (circuit.length === 0)
+    throw new Error("Circuit should at least have one edge.")
 
-    Complex.same(circuit.map((edge) => edge.complex))
+  Complex.same(circuit.map((edge) => edge.complex))
 
-    let head = circuit[0]
-    const rest = circuit.slice(1)
-    const last = circuit[circuit.length - 1]
+  let head = circuit[0]
+  const rest = circuit.slice(1)
+  const last = circuit[circuit.length - 1]
 
-    if (!cell_eq(head.boundary.start, last.boundary.end))
+  if (!cell_eq(head.boundary.start, last.boundary.end))
+    throw new Error("Circuit is not closed.")
+
+  for (const edge of rest) {
+    if (!cell_eq(head.boundary.end, edge.boundary.start))
       throw new Error("Circuit is not closed.")
 
-    for (const edge of rest) {
-      if (!cell_eq(head.boundary.end, edge.boundary.start))
-        throw new Error("Circuit is not closed.")
-
-      head = edge
-    }
+    head = edge
   }
 }

@@ -10,7 +10,6 @@ export class Edge implements Cell {
 
   constructor(the: { id: Id; start: Node; end: Node }) {
     Complex.same([the.start.complex, the.end.complex])
-
     this.id = the.id
     this.complex = the.start.complex
     this.start = the.start
@@ -59,7 +58,6 @@ export class Endpoints {
 
   constructor(the: { start: Node; end: Node }) {
     Complex.same([the.start.complex, the.end.complex])
-
     this.complex = the.start.complex
     this.start = the.start
     this.end = the.end

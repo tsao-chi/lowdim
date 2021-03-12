@@ -1,4 +1,8 @@
-- 3-dim -- Body -- Polyhedron
+- boundary implements Spheric
+- construct cell from boundary
+- Polyhedron
+- Body
+- 3-dim -- Body --
 
 - topology of 3-dim
 
