@@ -46,8 +46,16 @@ export class Complex {
       s += "faces:\n"
       for (const face of this.faces) {
         s += face.repr()
+        s += "\n"
       }
-      s += "\n"
+    }
+
+    if (this.bodies.length > 0) {
+      s += "bodies:\n"
+      for (const body of this.bodies) {
+        s += body.repr()
+        s += "\n"
+      }
     }
 
     return s

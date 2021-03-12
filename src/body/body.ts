@@ -22,7 +22,7 @@ export class Body implements Cell {
   repr(): string {
     const polyhedron = this.boundary
     const joint_repr = (joint: Joint) => {
-      let s = ""
+      let s = "  "
       s += `(${joint.left_face.id}) -> ${joint.left_side}`
       s += ` * `
       s += `${joint.right_side} <- (${joint.right_face.id})`

@@ -1,4 +1,4 @@
-- 3-dim -- impression
+- improve `joints_check` error report
 
 - topology of 3-dim
 
