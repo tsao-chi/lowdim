@@ -33,10 +33,7 @@ export class Edge implements Cell {
 }
 
 export class InverseEdge extends Edge {
-  endpoints: Endpoints = new Endpoints({
-    start: this.endpoints.end,
-    end: this.endpoints.start,
-  })
+  endpoints: Endpoints = new Endpoints(this.endpoints.end, this.endpoints.start)
 
   get inverse(): InverseEdge {
     return new Edge({ ...this })
@@ -52,10 +49,10 @@ export class Endpoints implements Spheric {
   start: Node
   end: Node
 
-  constructor(the: { start: Node; end: Node }) {
-    Complex.same([the.start.complex, the.end.complex])
-    this.complex = the.start.complex
-    this.start = the.start
-    this.end = the.end
+  constructor(start: Node, end: Node) {
+    Complex.same([start.complex, end.complex])
+    this.complex = start.complex
+    this.start = start
+    this.end = end
   }
 }

@@ -2,16 +2,19 @@ import { Cell, Id } from "@/cell"
 import { Node, Void } from "@/node"
 import { Edge, Endpoints } from "@/edge"
 import { Face, Polygon } from "@/face"
+import { Body, Polyhedron } from "@/body"
 
 export class Complex {
   nodes: Node[]
   edges: Edge[]
   faces: Face[]
+  bodies: Body[]
 
   constructor() {
     this.nodes = []
     this.edges = []
     this.faces = []
+    this.bodies = []
   }
 
   static same(complexes: Complex[]): void {
@@ -54,7 +57,7 @@ export class Complex {
 
   node(): Node {
     const id = this.nodes.length
-    const node = new Node({ id, void: new Void({ complex: this }) })
+    const node = new Node({ id, void: new Void(this) })
     this.nodes.push(node)
     return node
   }
@@ -63,7 +66,7 @@ export class Complex {
 
   edge(start: Node, end: Node): Edge {
     const id = this.edges.length
-    const endpoints = new Endpoints({ start, end })
+    const endpoints = new Endpoints(start, end)
     const edge = new Edge({ id, endpoints })
     this.edges.push(edge)
     return edge
@@ -73,13 +76,21 @@ export class Complex {
 
   face(circuit: Edge[]): Face {
     const id = this.faces.length
-    const polygon = new Polygon({ circuit })
+    const polygon = new Polygon(circuit)
     const face = new Face({ id, polygon })
     this.faces.push(face)
     return face
   }
 
   // NOTE 3-dim
+
+  body(pairs: Array<[Face, number, number, Face]>): Body {
+    const id = this.bodies.length
+    const polyhedron = new Polyhedron(pairs)
+    const body = new Body({ id, polyhedron })
+    this.bodies.push(body)
+    return body
+  }
 
   // TODO
 }

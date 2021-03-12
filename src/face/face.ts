@@ -29,10 +29,10 @@ export class Polygon implements Spheric {
   complex: Complex
   circuit: Array<Edge>
 
-  constructor(the: { circuit: Edge[] }) {
-    circuit_check(the.circuit)
-    this.complex = the.circuit[0].complex
-    this.circuit = the.circuit
+  constructor(circuit: Edge[]) {
+    circuit_check(circuit)
+    this.complex = circuit[0].complex
+    this.circuit = circuit
   }
 
   segment(i: number): Edge {

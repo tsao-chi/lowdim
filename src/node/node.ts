@@ -14,7 +14,7 @@ export class Node implements Cell {
   }
 
   get boundary(): Void {
-    return new Void({ ...this })
+    return this.void
   }
 
   repr(): string {
@@ -25,7 +25,7 @@ export class Node implements Cell {
 export class Void implements Spheric {
   complex: Complex
 
-  constructor(the: { complex: Complex }) {
-    this.complex = the.complex
+  constructor(complex: Complex) {
+    this.complex = complex
   }
 }
