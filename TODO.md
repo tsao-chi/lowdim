@@ -1,5 +1,3 @@
-- Polyhedron -- joints_check
-- Body -- repr
 - 3-dim -- impression
 
 - topology of 3-dim

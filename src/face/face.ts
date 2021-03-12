@@ -34,6 +34,10 @@ export class Polygon implements Spheric {
     this.complex = the.circuit[0].complex
     this.circuit = the.circuit
   }
+
+  segment(i: number): Edge {
+    return this.circuit[i]
+  }
 }
 
 function circuit_check(circuit: Edge[]): void {
