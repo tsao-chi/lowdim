@@ -19,10 +19,6 @@ export class Edge implements Cell {
     return `${this.id}: ${start.repr()} -> ${end.repr()}`
   }
 
-  get sign(): -1 | 1 {
-    return 1
-  }
-
   get boundary(): Endpoints {
     return this.endpoints
   }
@@ -30,15 +26,17 @@ export class Edge implements Cell {
   get inverse(): InverseEdge {
     return new InverseEdge({ ...this })
   }
+
+  get sign(): -1 | 1 {
+    return 1
+  }
 }
 
 export class InverseEdge extends Edge {
-  get boundary(): Endpoints {
-    return new Endpoints({
-      start: this.endpoints.end,
-      end: this.endpoints.start,
-    })
-  }
+  endpoints: Endpoints = new Endpoints({
+    start: this.endpoints.end,
+    end: this.endpoints.start,
+  })
 
   get inverse(): InverseEdge {
     return new Edge({ ...this })

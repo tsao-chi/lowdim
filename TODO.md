@@ -1,4 +1,3 @@
-- construct cell from boundary -- Face
 - construct cell from boundary -- Body
 - Polyhedron
 - Body

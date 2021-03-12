@@ -6,17 +6,16 @@ import { Edge } from "@/edge"
 export class Face implements Cell {
   id: Id
   complex: Complex
-  circuit: Edge[]
+  polygon: Polygon
 
-  constructor(the: { id: Id; circuit: Edge[] }) {
-    circuit_check(the.circuit)
+  constructor(the: { id: Id; polygon: Polygon }) {
     this.id = the.id
-    this.complex = the.circuit[0].complex
-    this.circuit = the.circuit
+    this.complex = the.polygon.complex
+    this.polygon = the.polygon
   }
 
   get boundary(): Polygon {
-    return new Polygon({ ...this })
+    return this.polygon
   }
 
   repr(): string {

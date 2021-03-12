@@ -73,7 +73,8 @@ export class Complex {
 
   face(circuit: Edge[]): Face {
     const id = this.faces.length
-    const face = new Face({ id, ...new Polygon({ circuit }) })
+    const polygon = new Polygon({ circuit })
+    const face = new Face({ id, polygon })
     this.faces.push(face)
     return face
   }
