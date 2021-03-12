@@ -1,5 +1,5 @@
 import { Cell, Id } from "@/cell"
-import { Node } from "@/node"
+import { Node, Void } from "@/node"
 import { Edge, Endpoints } from "@/edge"
 import { Face, Polygon } from "@/face"
 
@@ -54,7 +54,7 @@ export class Complex {
 
   node(): Node {
     const id = this.nodes.length
-    const node = new Node({ id, complex: this })
+    const node = new Node({ id, void: new Void({ complex: this }) })
     this.nodes.push(node)
     return node
   }

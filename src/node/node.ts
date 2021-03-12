@@ -5,10 +5,12 @@ import { Spheric } from "@/spheric"
 export class Node implements Cell {
   id: Id
   complex: Complex
+  void: Void
 
-  constructor(the: { id: Id; complex: Complex }) {
+  constructor(the: { id: Id; void: Void }) {
     this.id = the.id
-    this.complex = the.complex
+    this.complex = the.void.complex
+    this.void = the.void
   }
 
   get boundary(): Void {

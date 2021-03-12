@@ -1,4 +1,6 @@
-- construct cell from boundary
+- construct cell from boundary -- Edge
+- construct cell from boundary -- Face
+- construct cell from boundary -- Body
 - Polyhedron
 - Body
 - 3-dim -- Body --
