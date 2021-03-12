@@ -27,6 +27,10 @@ export class Edge implements Cell {
     return new InverseEdge({ ...this })
   }
 
+  get inv(): InverseEdge {
+    return this.inverse
+  }
+
   get sign(): -1 | 1 {
     return 1
   }
