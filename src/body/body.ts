@@ -58,5 +58,8 @@ export class Polyhedron implements Spheric {
 }
 
 function joints_check(joints: Array<Joint>): void {
-  // TODO
+  if (joints.length === 0)
+    throw new Error("To build a polyhedron, joints can not be empty.")
+  // TODO check paired sides are the same edge.
+  // TODO check every side of every face must be used.
 }
