@@ -1,4 +1,4 @@
-- Polyhedron
+- Polyhedron -- joints_check
 - Body -- repr
 - 3-dim -- impression
 
