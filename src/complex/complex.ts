@@ -61,29 +61,18 @@ export class Complex {
 
   // NOTE 1-dim
 
-  private endpoints(start: Node, end: Node): Endpoints {
-    return new Endpoints({
-      start,
-      end,
-    })
-  }
-
   edge(start: Node, end: Node): Edge {
     const id = this.edges.length
-    const edge = new Edge({ id, ...this.endpoints(start, end) })
+    const edge = new Edge({ id, ...new Endpoints({ start, end }) })
     this.edges.push(edge)
     return edge
   }
 
   // NOTE 2-dim
 
-  private polygon(circuit: Edge[]): Polygon {
-    return new Polygon({ circuit })
-  }
-
   face(circuit: Edge[]): Face {
     const id = this.faces.length
-    const face = new Face({ id, ...this.polygon(circuit) })
+    const face = new Face({ id, ...new Polygon({ circuit }) })
     this.faces.push(face)
     return face
   }

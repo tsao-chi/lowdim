@@ -1,4 +1,4 @@
-import { Cell, Id } from "@/cell"
+import { Cell, Id, cell_eq } from "@/cell"
 import { Complex } from "@/complex"
 import { Edge } from "@/edge"
 
@@ -47,11 +47,11 @@ export class Polygon {
     const rest = circuit.slice(1)
     const last = circuit[circuit.length - 1]
 
-    if (head.boundary.start !== last.boundary.end)
+    if (!cell_eq(head.boundary.start, last.boundary.end))
       throw new Error("Circuit is not closed.")
 
     for (const edge of rest) {
-      if (head.boundary.end !== edge.boundary.start)
+      if (!cell_eq(head.boundary.end, edge.boundary.start))
         throw new Error("Circuit is not closed.")
 
       head = edge
