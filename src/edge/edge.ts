@@ -6,15 +6,12 @@ import { Node } from "@/node"
 export class Edge implements Cell {
   id: Id
   complex: Complex
-  start: Node
-  end: Node
+  endpoints: Endpoints
 
-  constructor(the: { id: Id; start: Node; end: Node }) {
-    Complex.same([the.start.complex, the.end.complex])
+  constructor(the: { id: Id; endpoints: Endpoints }) {
     this.id = the.id
-    this.complex = the.start.complex
-    this.start = the.start
-    this.end = the.end
+    this.endpoints = the.endpoints
+    this.complex = the.endpoints.complex
   }
 
   repr(): string {
@@ -27,7 +24,7 @@ export class Edge implements Cell {
   }
 
   get boundary(): Endpoints {
-    return new Endpoints({ ...this })
+    return this.endpoints
   }
 
   get inverse(): InverseEdge {
@@ -38,8 +35,8 @@ export class Edge implements Cell {
 export class InverseEdge extends Edge {
   get boundary(): Endpoints {
     return new Endpoints({
-      start: this.end,
-      end: this.start,
+      start: this.endpoints.end,
+      end: this.endpoints.start,
     })
   }
 

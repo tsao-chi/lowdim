@@ -63,7 +63,8 @@ export class Complex {
 
   edge(start: Node, end: Node): Edge {
     const id = this.edges.length
-    const edge = new Edge({ id, ...new Endpoints({ start, end }) })
+    const endpoints = new Endpoints({ start, end })
+    const edge = new Edge({ id, endpoints })
     this.edges.push(edge)
     return edge
   }
