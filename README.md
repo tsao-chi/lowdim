@@ -1,6 +1,7 @@
 # LowDim
 
-Low dimensional (0, 1, 2, 3 maybe 4 dimension) algebraic topology, implemented by cell complex.
+Low dimensional (0, 1, 2, 3 maybe 4 dimension) topology and geometry.
+- implemented by cell complex.
 
 ## Community
 
