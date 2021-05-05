@@ -1,7 +1,7 @@
-import { Cell, Id } from "@/cell"
-import { Complex } from "@/complex"
-import { Spheric } from "@/spheric"
-import { Node } from "@/node"
+import { Cell, Id } from "../cell"
+import { Complex } from "../complex"
+import { Spheric } from "../spheric"
+import { Node } from "../node"
 
 export class Edge implements Cell {
   id: Id

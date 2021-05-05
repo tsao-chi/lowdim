@@ -1,5 +1,5 @@
-import "module-alias/register"
-import { Complex } from "@/index"
+
+import { Complex } from "../index"
 
 {
   const d3_torus = new Complex()

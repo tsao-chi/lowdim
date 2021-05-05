@@ -1,5 +1,5 @@
-import { Complex } from "@/complex"
-import { Spheric } from "@/spheric"
+import { Complex } from "../complex"
+import { Spheric } from "../spheric"
 
 export type Id = number
 

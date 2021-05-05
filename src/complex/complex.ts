@@ -1,8 +1,8 @@
-import { Cell, Id } from "@/cell"
-import { Node, Void } from "@/node"
-import { Edge, Endpoints } from "@/edge"
-import { Face, Polygon } from "@/face"
-import { Body, Polyhedron } from "@/body"
+import { Cell, Id } from "../cell"
+import { Node, Void } from "../node"
+import { Edge, Endpoints } from "../edge"
+import { Face, Polygon } from "../face"
+import { Body, Polyhedron } from "../body"
 
 export class Complex {
   nodes: Node[]

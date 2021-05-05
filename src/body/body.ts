@@ -1,8 +1,8 @@
-import { Cell, Id, cell_eq } from "@/cell"
-import { Complex } from "@/complex"
-import { Spheric } from "@/spheric"
-import { Edge } from "@/edge"
-import { Face } from "@/face"
+import { Cell, Id, cell_eq } from "../cell"
+import { Complex } from "../complex"
+import { Spheric } from "../spheric"
+import { Edge } from "../edge"
+import { Face } from "../face"
 
 export class Body implements Cell {
   id: Id

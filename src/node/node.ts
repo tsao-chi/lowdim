@@ -1,6 +1,6 @@
-import { Cell, Id } from "@/cell"
-import { Complex } from "@/complex"
-import { Spheric } from "@/spheric"
+import { Cell, Id } from "../cell"
+import { Complex } from "../complex"
+import { Spheric } from "../spheric"
 
 export class Node implements Cell {
   id: Id
