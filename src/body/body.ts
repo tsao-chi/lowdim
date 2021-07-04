@@ -85,7 +85,7 @@ function joints_check(joints: Array<Joint>): void {
     }
   }
 
-  // NOTE record from face to occured sides
+  // NOTE record from face to occurred sides
   const record: Map<
     number,
     {
@@ -127,7 +127,7 @@ function joints_check(joints: Array<Joint>): void {
     if (new Set(sides).size !== sides.length) {
       throw new Error(
         "In a polyhedron, every side of every face must be used once.\n" +
-          "But duplication occured.\n"
+          "But duplication occurred.\n"
       )
     }
   }
