@@ -1,4 +1,3 @@
-
 import { Complex } from "../index"
 
 {
@@ -22,6 +21,14 @@ import { Complex } from "../index"
     [cp, 1, 2, bp],
     [ap, 2, 1, bp],
   ])
+
+  // TODO Syntax inspired by logic programming and relational algebra.
+
+  // const s = d3_torus.body([
+  //   ap(b3, c2, a2, c0),
+  //   bp(b0, a2, c1, b3),
+  //   cp(c0, c1, c2, b0),
+  // ])
 
   console.log(d3_torus.repr())
 }
