@@ -1,4 +1,3 @@
-
 import { Complex } from "../index"
 
 {
@@ -29,7 +28,7 @@ import { Complex } from "../index"
   const toro = torus.edge(origin, origin)
   const polo = torus.edge(origin, origin)
 
-  const surface = torus.face([toro, polo, toro.inverse, polo.inverse])
+  const spoke = torus.face([toro, polo, toro.inverse, polo.inverse])
 
   console.log(torus.repr())
 }
