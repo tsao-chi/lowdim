@@ -1,5 +1,12 @@
 - use logic programming syntax to construct 3-dim element -- instead of `Joint`
 
+# docs
+
+- outline
+- first chapters
+
+# algebra
+
 - topology of 3-dim
 
 - algebra of 1-dim -- equation in 2-dim
