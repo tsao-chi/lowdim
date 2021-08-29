@@ -31,7 +31,7 @@ export class Complex {
 
   face(circuit: Cells.Edge[]): Cells.Face {
     const id = this.faces.length
-    const face = new Cells.Face(id, new Cells.Polygon(circuit))
+    const face = new Cells.Face(id, new Sphericals.Polygon(circuit))
     this.faces.push(face)
     return face
   }

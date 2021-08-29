@@ -1,4 +1,3 @@
-- `sphericals/polygon`
 - `sphericals/polyhedron`
 
 - use logic programming syntax to construct 3-dim element -- instead of `Joint`
