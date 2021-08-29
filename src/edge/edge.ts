@@ -4,11 +4,11 @@ import { Node } from "../node"
 
 export class Edge implements Cell {
   id: Id
-  endpoints: Endpoints
+  boundary: Endpoints
 
-  constructor(the: { id: Id; endpoints: Endpoints }) {
-    this.id = the.id
-    this.endpoints = the.endpoints
+  constructor(id: Id, boundary: Endpoints) {
+    this.id = id
+    this.boundary = boundary
   }
 
   repr(): string {
@@ -16,12 +16,8 @@ export class Edge implements Cell {
     return `${this.id}: ${start.repr()} -> ${end.repr()}`
   }
 
-  get boundary(): Endpoints {
-    return this.endpoints
-  }
-
   get inverse(): InverseEdge {
-    return new InverseEdge({ ...this })
+    return new InverseEdge(this.id, this.boundary)
   }
 
   get inv(): InverseEdge {
@@ -34,10 +30,10 @@ export class Edge implements Cell {
 }
 
 export class InverseEdge extends Edge {
-  endpoints: Endpoints = new Endpoints(this.endpoints.end, this.endpoints.start)
+  boundary: Endpoints = new Endpoints(this.boundary.end, this.boundary.start)
 
   get inverse(): InverseEdge {
-    return new Edge({ ...this })
+    return new Edge(this.id, this.boundary)
   }
 
   get sign(): -1 | 1 {

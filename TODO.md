@@ -1,4 +1,3 @@
-- edge -- simplify class constructor
 - face -- simplify class constructor
 - body -- simplify class constructor
 
