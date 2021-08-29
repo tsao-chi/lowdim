@@ -24,7 +24,7 @@ export class Complex {
 
   edge(start: Cells.Node, end: Cells.Node): Cells.Edge {
     const id = this.edges.length
-    const edge = new Cells.Edge(id, new Cells.Endpoints(start, end))
+    const edge = new Cells.Edge(id, new Sphericals.Endpoints(start, end))
     this.edges.push(edge)
     return edge
   }

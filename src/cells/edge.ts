@@ -1,12 +1,12 @@
 import { Cell, Id } from "../cell"
-import { Spherical } from "../spherical"
 import * as Cells from "../cells"
+import * as Sphericals from "../sphericals"
 
 export class Edge extends Cell {
   id: Id
-  boundary: Endpoints
+  boundary: Sphericals.Endpoints
 
-  constructor(id: Id, boundary: Endpoints) {
+  constructor(id: Id, boundary: Sphericals.Endpoints) {
     super()
     this.id = id
     this.boundary = boundary
@@ -31,7 +31,10 @@ export class Edge extends Cell {
 }
 
 export class InversedEdge extends Edge {
-  boundary: Endpoints = new Endpoints(this.boundary.end, this.boundary.start)
+  boundary: Sphericals.Endpoints = new Sphericals.Endpoints(
+    this.boundary.end,
+    this.boundary.start
+  )
 
   get inverse(): InversedEdge {
     return new Edge(this.id, this.boundary)
@@ -39,16 +42,5 @@ export class InversedEdge extends Edge {
 
   get sign(): -1 | 1 {
     return -1
-  }
-}
-
-export class Endpoints extends Spherical {
-  start: Cells.Node
-  end: Cells.Node
-
-  constructor(start: Cells.Node, end: Cells.Node) {
-    super()
-    this.start = start
-    this.end = end
   }
 }

@@ -1,4 +1,3 @@
-- `sphericals/endpoints`
 - `sphericals/polygon`
 - `sphericals/polyhedron`
 
