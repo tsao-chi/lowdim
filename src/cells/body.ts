@@ -1,12 +1,13 @@
-import { Cell, Id, cell_eq } from "../cell"
+import { Cell, Id } from "../cell"
 import { Spheric } from "../spheric"
 import * as Cells from "../cells"
 
-export class Body implements Cell {
+export class Body extends Cell {
   id: Id
   boundary: Polyhedron
 
   constructor(id: Id, boundary: Polyhedron) {
+    super()
     this.id = id
     this.boundary = boundary
   }
@@ -66,7 +67,7 @@ function joints_check(joints: Array<Joint>): void {
     throw new Error("To build a polyhedron, joints can not be empty.")
 
   for (const joint of joints) {
-    if (!cell_eq(joint.left_segment, joint.right_segment)) {
+    if (!joint.left_segment.eq(joint.right_segment)) {
       throw new Error("In a joint paired sides should be the same edge.")
     }
   }

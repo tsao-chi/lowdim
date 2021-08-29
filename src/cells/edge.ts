@@ -2,11 +2,12 @@ import { Cell, Id } from "../cell"
 import { Spheric } from "../spheric"
 import * as Cells from "../cells"
 
-export class Edge implements Cell {
+export class Edge extends Cell {
   id: Id
   boundary: Endpoints
 
   constructor(id: Id, boundary: Endpoints) {
+    super()
     this.id = id
     this.boundary = boundary
   }

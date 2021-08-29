@@ -1,12 +1,13 @@
-import { Cell, Id, cell_eq } from "../cell"
+import { Cell, Id } from "../cell"
 import { Spheric } from "../spheric"
 import * as Cells from "../cells"
 
-export class Face implements Cell {
+export class Face extends Cell {
   id: Id
   boundary: Polygon
 
   constructor(id: Id, boundary: Polygon) {
+    super()
     this.id = id
     this.boundary = boundary
   }
@@ -39,11 +40,11 @@ function circuit_check(circuit: Cells.Edge[]): void {
   const rest = circuit.slice(1)
   const last = circuit[circuit.length - 1]
 
-  if (!cell_eq(head.boundary.start, last.boundary.end))
+  if (!head.boundary.start.eq(last.boundary.end))
     throw new Error("Circuit is not closed.")
 
   for (const edge of rest) {
-    if (!cell_eq(head.boundary.end, edge.boundary.start))
+    if (!head.boundary.end.eq(edge.boundary.start))
       throw new Error("Circuit is not closed.")
 
     head = edge

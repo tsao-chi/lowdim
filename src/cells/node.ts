@@ -1,11 +1,12 @@
 import { Cell, Id } from "../cell"
 import { Spheric } from "../spheric"
 
-export class Node implements Cell {
+export class Node extends Cell {
   id: Id
   boundary: Void
 
   constructor(id: Id, boundary: Void) {
+    super()
     this.id = id
     this.boundary = boundary
   }
