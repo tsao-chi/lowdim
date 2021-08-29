@@ -17,11 +17,11 @@ export class Edge extends Cell {
     return `${this.id}: ${start.repr()} -> ${end.repr()}`
   }
 
-  get inverse(): InverseEdge {
-    return new InverseEdge(this.id, this.boundary)
+  get inverse(): InversedEdge {
+    return new InversedEdge(this.id, this.boundary)
   }
 
-  get inv(): InverseEdge {
+  get inv(): InversedEdge {
     return this.inverse
   }
 
@@ -30,10 +30,10 @@ export class Edge extends Cell {
   }
 }
 
-export class InverseEdge extends Edge {
+export class InversedEdge extends Edge {
   boundary: Endpoints = new Endpoints(this.boundary.end, this.boundary.start)
 
-  get inverse(): InverseEdge {
+  get inverse(): InversedEdge {
     return new Edge(this.id, this.boundary)
   }
 
