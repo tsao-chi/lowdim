@@ -1,4 +1,3 @@
-import { Cell, Id } from "../cell"
 import * as Cells from "../cells"
 import * as Sphericals from "../sphericals"
 
