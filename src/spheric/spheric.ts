@@ -1,3 +1,4 @@
-export type Spheric = {
+export abstract class Spheric {
+  instanceofSpheric = true
   // TODO evidence
 }

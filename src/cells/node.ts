@@ -16,4 +16,4 @@ export class Node extends Cell {
   }
 }
 
-export class Void implements Spheric {}
+export class Void extends Spheric {}

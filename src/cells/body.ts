@@ -52,10 +52,11 @@ export class Joint {
   }
 }
 
-export class Polyhedron implements Spheric {
+export class Polyhedron extends Spheric {
   joints: Array<Joint>
 
   constructor(pairs: Array<[Cells.Face, number, number, Cells.Face]>) {
+    super()
     const joints = pairs.map((pair) => new Joint(...pair))
     joints_check(joints)
     this.joints = joints

@@ -19,10 +19,11 @@ export class Face extends Cell {
   }
 }
 
-export class Polygon implements Spheric {
+export class Polygon extends Spheric {
   circuit: Array<Cells.Edge>
 
   constructor(circuit: Cells.Edge[]) {
+    super()
     circuit_check(circuit)
     this.circuit = circuit
   }

@@ -42,11 +42,12 @@ export class InverseEdge extends Edge {
   }
 }
 
-export class Endpoints implements Spheric {
+export class Endpoints extends Spheric {
   start: Cells.Node
   end: Cells.Node
 
   constructor(start: Cells.Node, end: Cells.Node) {
+    super()
     this.start = start
     this.end = end
   }
