@@ -1,5 +1,3 @@
-- improve `joints_check` error report
-
 - topology of 3-dim
 
 - algebra of 1-dim -- equation in 2-dim
@@ -8,6 +6,8 @@
 # later
 
 - use `NodeId`, `NodeMap`, `EdgeId`, `EdgeMap` and so on -- to avoid copy whole graph
+
+- improve `joints_check` error report
 
 # encoding computing machines
 
