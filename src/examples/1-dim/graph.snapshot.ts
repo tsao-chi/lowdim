@@ -1,11 +1,13 @@
 import { Complex } from "../.."
 
-const graph = new Complex()
+{
+  const graph = new Complex()
 
-const a = graph.node()
-const b = graph.node()
+  const a = graph.node()
+  const b = graph.node()
 
-const f = graph.edge(a, b)
-const g = graph.edge(b, a)
+  const f = graph.edge(a, b)
+  const g = graph.edge(b, a)
 
-console.log(graph.repr())
+  console.log(graph.repr())
+}
