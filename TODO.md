@@ -1,4 +1,3 @@
-- face -- simplify class constructor
 - body -- simplify class constructor
 
 - improve `joints_check` error report
