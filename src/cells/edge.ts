@@ -21,10 +21,6 @@ export class Edge extends Cell {
     return new InversedEdge(this.id, this.boundary)
   }
 
-  get inv(): InversedEdge {
-    return this.inverse
-  }
-
   get sign(): -1 | 1 {
     return 1
   }
