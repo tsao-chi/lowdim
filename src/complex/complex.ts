@@ -17,14 +17,32 @@ export class Complex {
     this.bodies = []
   }
 
-  static same(complexes: Complex[]): void {
-    if (complexes.length === 0) return
+  node(): Node {
+    const id = this.nodes.length
+    const node = new Node(id, new Void())
+    this.nodes.push(node)
+    return node
+  }
 
-    const [head, ...rest] = complexes
+  edge(start: Node, end: Node): Edge {
+    const id = this.edges.length
+    const edge = new Edge(id, new Endpoints(start, end))
+    this.edges.push(edge)
+    return edge
+  }
 
-    if (rest.some((other) => head !== other)) {
-      throw new Error("Expecting complexes to be the same.")
-    }
+  face(circuit: Edge[]): Face {
+    const id = this.faces.length
+    const face = new Face(id, new Polygon(circuit))
+    this.faces.push(face)
+    return face
+  }
+
+  body(pairs: Array<[Face, number, number, Face]>): Body {
+    const id = this.bodies.length
+    const body = new Body(id, new Polyhedron(pairs))
+    this.bodies.push(body)
+    return body
   }
 
   repr(): string {
@@ -60,45 +78,4 @@ export class Complex {
 
     return s
   }
-
-  // NOTE 0-dim
-
-  node(): Node {
-    const id = this.nodes.length
-    const node = new Node(id, new Void())
-    this.nodes.push(node)
-    return node
-  }
-
-  // NOTE 1-dim
-
-  edge(start: Node, end: Node): Edge {
-    const id = this.edges.length
-    const endpoints = new Endpoints(start, end)
-    const edge = new Edge(id, endpoints)
-    this.edges.push(edge)
-    return edge
-  }
-
-  // NOTE 2-dim
-
-  face(circuit: Edge[]): Face {
-    const id = this.faces.length
-    const polygon = new Polygon(circuit)
-    const face = new Face(id, polygon)
-    this.faces.push(face)
-    return face
-  }
-
-  // NOTE 3-dim
-
-  body(pairs: Array<[Face, number, number, Face]>): Body {
-    const id = this.bodies.length
-    const polyhedron = new Polyhedron(pairs)
-    const body = new Body(id, polyhedron)
-    this.bodies.push(body)
-    return body
-  }
-
-  // TODO
 }
