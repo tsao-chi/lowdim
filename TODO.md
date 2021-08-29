@@ -1,6 +1,3 @@
-- simplify project file structure
-- simplify class definitions
-
 - improve `joints_check` error report
 
 - topology of 3-dim

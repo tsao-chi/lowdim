@@ -1,16 +1,13 @@
 import { Cell, Id, cell_eq } from "../cell"
-import { Complex } from "../complex"
 import { Spheric } from "../spheric"
 import { Edge } from "../edge"
 
 export class Face implements Cell {
   id: Id
-  complex: Complex
   polygon: Polygon
 
   constructor(the: { id: Id; polygon: Polygon }) {
     this.id = the.id
-    this.complex = the.polygon.complex
     this.polygon = the.polygon
   }
 
@@ -26,12 +23,10 @@ export class Face implements Cell {
 }
 
 export class Polygon implements Spheric {
-  complex: Complex
   circuit: Array<Edge>
 
   constructor(circuit: Edge[]) {
     circuit_check(circuit)
-    this.complex = circuit[0].complex
     this.circuit = circuit
   }
 
@@ -43,8 +38,6 @@ export class Polygon implements Spheric {
 function circuit_check(circuit: Edge[]): void {
   if (circuit.length === 0)
     throw new Error("Circuit should at least have one edge.")
-
-  Complex.same(circuit.map((edge) => edge.complex))
 
   let head = circuit[0]
   const rest = circuit.slice(1)

@@ -1,17 +1,14 @@
 import { Cell, Id, cell_eq } from "../cell"
-import { Complex } from "../complex"
 import { Spheric } from "../spheric"
 import { Edge } from "../edge"
 import { Face } from "../face"
 
 export class Body implements Cell {
   id: Id
-  complex: Complex
   polyhedron: Polyhedron
 
   constructor(the: { id: Id; polyhedron: Polyhedron }) {
     this.id = the.id
-    this.complex = the.polyhedron.complex
     this.polyhedron = the.polyhedron
   }
 
@@ -33,7 +30,6 @@ export class Body implements Cell {
 }
 
 export class Joint {
-  complex: Complex
   left_face: Face
   left_side: number
   right_side: number
@@ -45,8 +41,6 @@ export class Joint {
     right_side: number,
     right_face: Face
   ) {
-    Complex.same([left_face.complex, right_face.complex])
-    this.complex = left_face.complex
     this.left_face = left_face
     this.left_side = left_side
     this.right_face = right_face
@@ -63,14 +57,11 @@ export class Joint {
 }
 
 export class Polyhedron implements Spheric {
-  complex: Complex
   joints: Array<Joint>
 
   constructor(pairs: Array<[Face, number, number, Face]>) {
     const joints = pairs.map((pair) => new Joint(...pair))
-    Complex.same(joints.map((joint) => joint.complex))
     joints_check(joints)
-    this.complex = pairs[0][0].complex
     this.joints = joints
   }
 }
