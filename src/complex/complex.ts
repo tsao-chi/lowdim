@@ -38,7 +38,7 @@ export class Complex {
 
   body(pairs: Array<[Cells.Face, number, number, Cells.Face]>): Cells.Body {
     const id = this.bodies.length
-    const body = new Cells.Body(id, new Cells.Polyhedron(pairs))
+    const body = new Cells.Body(id, new Sphericals.Polyhedron(pairs))
     this.bodies.push(body)
     return body
   }
