@@ -6,7 +6,7 @@ date: 2021-08-29
 # 研究对象与研究目标
 
 **代数拓扑 / Algebraic topology** -- 旧称 **组合拓扑 / Combinatorial topology**，
-其研究对象是 **空间 (Space)**，其研究目标是空间的 **分类问题 / Classification problem**。
+其研究对象是 **空间 / Space**，其研究目标是空间的 **分类问题 / Classification problem**。
 
 定义空间的方式有很多，在这本书中，在简要介绍定义空间的各种方式之后，
 我们将把自己的学习限制在其中一种方式之内 -- 即 **胞腔复形 / Cell complex**。
