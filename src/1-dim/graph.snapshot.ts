@@ -1,4 +1,3 @@
-
 import { Complex } from "../index"
 
 const graph = new Complex()
