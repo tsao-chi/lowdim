@@ -1,5 +1,6 @@
 import { Cell, Id } from "../cell"
 import * as Cells from "../cells"
+import * as Sphericals from "../sphericals"
 
 export class Complex {
   nodes: Cells.Node[]
@@ -16,7 +17,7 @@ export class Complex {
 
   node(): Cells.Node {
     const id = this.nodes.length
-    const node = new Cells.Node(id, new Cells.Void())
+    const node = new Cells.Node(id, new Sphericals.Void())
     this.nodes.push(node)
     return node
   }

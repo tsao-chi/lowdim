@@ -1,11 +1,11 @@
 import { Cell, Id } from "../cell"
-import { Spherical } from "../spherical"
+import * as Sphericals from "../sphericals"
 
 export class Node extends Cell {
   id: Id
-  boundary: Void
+  boundary: Sphericals.Void
 
-  constructor(id: Id, boundary: Void) {
+  constructor(id: Id, boundary: Sphericals.Void) {
     super()
     this.id = id
     this.boundary = boundary
@@ -15,5 +15,3 @@ export class Node extends Cell {
     return `${this.id}`
   }
 }
-
-export class Void extends Spherical {}
