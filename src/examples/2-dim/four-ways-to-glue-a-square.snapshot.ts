@@ -1,4 +1,4 @@
-import { Complex } from "../index"
+import { Complex } from "../.."
 
 {
   const sphere = new Complex()

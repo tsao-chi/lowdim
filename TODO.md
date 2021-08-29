@@ -1,3 +1,4 @@
+- simplify project file structure
 - simplify class definitions
 
 - improve `joints_check` error report
