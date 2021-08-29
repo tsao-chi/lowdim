@@ -1,4 +1,4 @@
-- body -- simplify class constructor
+- use a `cells/` dir
 
 - improve `joints_check` error report
 

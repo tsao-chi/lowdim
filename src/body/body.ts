@@ -5,19 +5,14 @@ import { Face } from "../face"
 
 export class Body implements Cell {
   id: Id
-  polyhedron: Polyhedron
+  boundary: Polyhedron
 
-  constructor(the: { id: Id; polyhedron: Polyhedron }) {
-    this.id = the.id
-    this.polyhedron = the.polyhedron
-  }
-
-  get boundary(): Polyhedron {
-    return this.polyhedron
+  constructor(id: Id, boundary: Polyhedron) {
+    this.id = id
+    this.boundary = boundary
   }
 
   repr(): string {
-    const polyhedron = this.boundary
     const joint_repr = (joint: Joint) => {
       let s = "  "
       s += `(${joint.left_face.id}) -> ${joint.left_side}`
@@ -25,7 +20,8 @@ export class Body implements Cell {
       s += `${joint.right_side} <- (${joint.right_face.id})`
       return s
     }
-    return `${this.id}: {\n${polyhedron.joints.map(joint_repr).join("\n")}\n}`
+    const joins_repr = this.boundary.joints.map(joint_repr).join("\n")
+    return `${this.id}: {\n${joins_repr}\n}`
   }
 }
 

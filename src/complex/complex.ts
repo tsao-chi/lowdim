@@ -95,7 +95,7 @@ export class Complex {
   body(pairs: Array<[Face, number, number, Face]>): Body {
     const id = this.bodies.length
     const polyhedron = new Polyhedron(pairs)
-    const body = new Body({ id, polyhedron })
+    const body = new Body(id, polyhedron)
     this.bodies.push(body)
     return body
   }
