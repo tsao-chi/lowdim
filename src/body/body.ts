@@ -48,11 +48,11 @@ export class Joint {
   }
 
   get left_segment(): Edge {
-    return this.left_face.polygon.segment(this.left_side)
+    return this.left_face.boundary.segment(this.left_side)
   }
 
   get right_segment(): Edge {
-    return this.right_face.polygon.segment(this.right_side)
+    return this.right_face.boundary.segment(this.right_side)
   }
 }
 
@@ -109,7 +109,7 @@ function joints_check(joints: Array<Joint>): void {
 
   // NOTE every side of every face must be used once.
   for (const { face, sides } of record.values()) {
-    if (face.polygon.circuit.length !== sides.length) {
+    if (face.boundary.circuit.length !== sides.length) {
       throw new Error(
         "In a polyhedron, every side of every face must be used once."
       )

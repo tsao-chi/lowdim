@@ -4,21 +4,16 @@ import { Edge } from "../edge"
 
 export class Face implements Cell {
   id: Id
-  polygon: Polygon
+  boundary: Polygon
 
-  constructor(the: { id: Id; polygon: Polygon }) {
-    this.id = the.id
-    this.polygon = the.polygon
-  }
-
-  get boundary(): Polygon {
-    return this.polygon
+  constructor(id: Id, boundary: Polygon) {
+    this.id = id
+    this.boundary = boundary
   }
 
   repr(): string {
-    const polygon = this.boundary
     const edge_repr = (edge: Edge) => `${edge.sign === -1 ? "-" : ""}${edge.id}`
-    return `${this.id}: [${polygon.circuit.map(edge_repr).join(", ")}]`
+    return `${this.id}: [${this.boundary.circuit.map(edge_repr).join(", ")}]`
   }
 }
 
