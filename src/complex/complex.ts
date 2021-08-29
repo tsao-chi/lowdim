@@ -1,14 +1,11 @@
 import { Cell, Id } from "../cell"
-import { Node, Void } from "../node"
-import { Edge, Endpoints } from "../edge"
-import { Face, Polygon } from "../face"
-import { Body, Polyhedron } from "../body"
+import * as Cells from "../cells"
 
 export class Complex {
-  nodes: Node[]
-  edges: Edge[]
-  faces: Face[]
-  bodies: Body[]
+  nodes: Cells.Node[]
+  edges: Cells.Edge[]
+  faces: Cells.Face[]
+  bodies: Cells.Body[]
 
   constructor() {
     this.nodes = []
@@ -17,30 +14,30 @@ export class Complex {
     this.bodies = []
   }
 
-  node(): Node {
+  node(): Cells.Node {
     const id = this.nodes.length
-    const node = new Node(id, new Void())
+    const node = new Cells.Node(id, new Cells.Void())
     this.nodes.push(node)
     return node
   }
 
-  edge(start: Node, end: Node): Edge {
+  edge(start: Cells.Node, end: Cells.Node): Cells.Edge {
     const id = this.edges.length
-    const edge = new Edge(id, new Endpoints(start, end))
+    const edge = new Cells.Edge(id, new Cells.Endpoints(start, end))
     this.edges.push(edge)
     return edge
   }
 
-  face(circuit: Edge[]): Face {
+  face(circuit: Cells.Edge[]): Cells.Face {
     const id = this.faces.length
-    const face = new Face(id, new Polygon(circuit))
+    const face = new Cells.Face(id, new Cells.Polygon(circuit))
     this.faces.push(face)
     return face
   }
 
-  body(pairs: Array<[Face, number, number, Face]>): Body {
+  body(pairs: Array<[Cells.Face, number, number, Cells.Face]>): Cells.Body {
     const id = this.bodies.length
-    const body = new Body(id, new Polyhedron(pairs))
+    const body = new Cells.Body(id, new Cells.Polyhedron(pairs))
     this.bodies.push(body)
     return body
   }

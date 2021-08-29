@@ -1,5 +1,2 @@
 export * from "./cell"
 export * from "./complex"
-export * from "./node"
-export * from "./edge"
-export * from "./face"

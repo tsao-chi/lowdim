@@ -1,7 +1,6 @@
 import { Cell, Id, cell_eq } from "../cell"
 import { Spheric } from "../spheric"
-import { Edge } from "../edge"
-import { Face } from "../face"
+import * as Cells from "../cells"
 
 export class Body implements Cell {
   id: Id
@@ -26,16 +25,16 @@ export class Body implements Cell {
 }
 
 export class Joint {
-  left_face: Face
+  left_face: Cells.Face
   left_side: number
   right_side: number
-  right_face: Face
+  right_face: Cells.Face
 
   constructor(
-    left_face: Face,
+    left_face: Cells.Face,
     left_side: number,
     right_side: number,
-    right_face: Face
+    right_face: Cells.Face
   ) {
     this.left_face = left_face
     this.left_side = left_side
@@ -43,11 +42,11 @@ export class Joint {
     this.right_side = right_side
   }
 
-  get left_segment(): Edge {
+  get left_segment(): Cells.Edge {
     return this.left_face.boundary.segment(this.left_side)
   }
 
-  get right_segment(): Edge {
+  get right_segment(): Cells.Edge {
     return this.right_face.boundary.segment(this.right_side)
   }
 }
@@ -55,7 +54,7 @@ export class Joint {
 export class Polyhedron implements Spheric {
   joints: Array<Joint>
 
-  constructor(pairs: Array<[Face, number, number, Face]>) {
+  constructor(pairs: Array<[Cells.Face, number, number, Cells.Face]>) {
     const joints = pairs.map((pair) => new Joint(...pair))
     joints_check(joints)
     this.joints = joints
@@ -76,7 +75,7 @@ function joints_check(joints: Array<Joint>): void {
   const record: Map<
     number,
     {
-      face: Face
+      face: Cells.Face
       sides: Array<number>
     }
   > = new Map()

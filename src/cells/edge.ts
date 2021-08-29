@@ -1,6 +1,6 @@
 import { Cell, Id } from "../cell"
 import { Spheric } from "../spheric"
-import { Node } from "../node"
+import * as Cells from "../cells"
 
 export class Edge implements Cell {
   id: Id
@@ -42,10 +42,10 @@ export class InverseEdge extends Edge {
 }
 
 export class Endpoints implements Spheric {
-  start: Node
-  end: Node
+  start: Cells.Node
+  end: Cells.Node
 
-  constructor(start: Node, end: Node) {
+  constructor(start: Cells.Node, end: Cells.Node) {
     this.start = start
     this.end = end
   }

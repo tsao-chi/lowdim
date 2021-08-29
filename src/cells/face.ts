@@ -1,6 +1,6 @@
 import { Cell, Id, cell_eq } from "../cell"
 import { Spheric } from "../spheric"
-import { Edge } from "../edge"
+import * as Cells from "../cells"
 
 export class Face implements Cell {
   id: Id
@@ -12,25 +12,26 @@ export class Face implements Cell {
   }
 
   repr(): string {
-    const edge_repr = (edge: Edge) => `${edge.sign === -1 ? "-" : ""}${edge.id}`
+    const edge_repr = (edge: Cells.Edge) =>
+      `${edge.sign === -1 ? "-" : ""}${edge.id}`
     return `${this.id}: [${this.boundary.circuit.map(edge_repr).join(", ")}]`
   }
 }
 
 export class Polygon implements Spheric {
-  circuit: Array<Edge>
+  circuit: Array<Cells.Edge>
 
-  constructor(circuit: Edge[]) {
+  constructor(circuit: Cells.Edge[]) {
     circuit_check(circuit)
     this.circuit = circuit
   }
 
-  segment(i: number): Edge {
+  segment(i: number): Cells.Edge {
     return this.circuit[i]
   }
 }
 
-function circuit_check(circuit: Edge[]): void {
+function circuit_check(circuit: Cells.Edge[]): void {
   if (circuit.length === 0)
     throw new Error("Circuit should at least have one edge.")
 
