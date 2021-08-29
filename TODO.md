@@ -1,3 +1,7 @@
+- edge -- simplify class constructor
+- face -- simplify class constructor
+- body -- simplify class constructor
+
 - improve `joints_check` error report
 
 - topology of 3-dim

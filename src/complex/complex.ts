@@ -65,7 +65,7 @@ export class Complex {
 
   node(): Node {
     const id = this.nodes.length
-    const node = new Node({ id, void: new Void() })
+    const node = new Node(id, new Void())
     this.nodes.push(node)
     return node
   }

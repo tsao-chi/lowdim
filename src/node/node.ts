@@ -3,15 +3,11 @@ import { Spheric } from "../spheric"
 
 export class Node implements Cell {
   id: Id
-  void: Void
+  boundary: Void
 
-  constructor(the: { id: Id; void: Void }) {
-    this.id = the.id
-    this.void = the.void
-  }
-
-  get boundary(): Void {
-    return this.void
+  constructor(id: Id, boundary: Void) {
+    this.id = id
+    this.boundary = boundary
   }
 
   repr(): string {
