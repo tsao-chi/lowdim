@@ -1,5 +1,5 @@
 import { Cell, Id } from "../cell"
-import { Spheric } from "../spheric"
+import { Spherical } from "../spherical"
 import * as Cells from "../cells"
 
 export class Edge extends Cell {
@@ -42,7 +42,7 @@ export class InversedEdge extends Edge {
   }
 }
 
-export class Endpoints extends Spheric {
+export class Endpoints extends Spherical {
   start: Cells.Node
   end: Cells.Node
 

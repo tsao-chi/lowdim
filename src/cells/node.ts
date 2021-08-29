@@ -1,5 +1,5 @@
 import { Cell, Id } from "../cell"
-import { Spheric } from "../spheric"
+import { Spherical } from "../spherical"
 
 export class Node extends Cell {
   id: Id
@@ -16,4 +16,4 @@ export class Node extends Cell {
   }
 }
 
-export class Void extends Spheric {}
+export class Void extends Spherical {}

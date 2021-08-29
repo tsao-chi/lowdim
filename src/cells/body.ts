@@ -1,5 +1,5 @@
 import { Cell, Id } from "../cell"
-import { Spheric } from "../spheric"
+import { Spherical } from "../spherical"
 import * as Cells from "../cells"
 
 export class Body extends Cell {
@@ -52,7 +52,7 @@ export class Joint {
   }
 }
 
-export class Polyhedron extends Spheric {
+export class Polyhedron extends Spherical {
   joints: Array<Joint>
 
   constructor(pairs: Array<[Cells.Face, number, number, Cells.Face]>) {

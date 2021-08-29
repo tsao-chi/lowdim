@@ -1,5 +1,5 @@
 import { Cell, Id } from "../cell"
-import { Spheric } from "../spheric"
+import { Spherical } from "../spherical"
 import * as Cells from "../cells"
 
 export class Face extends Cell {
@@ -19,7 +19,7 @@ export class Face extends Cell {
   }
 }
 
-export class Polygon extends Spheric {
+export class Polygon extends Spherical {
   circuit: Array<Cells.Edge>
 
   constructor(circuit: Cells.Edge[]) {
